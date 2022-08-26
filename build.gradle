@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'ar.edu.unq.CriptoP2P'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1-SNAPSHOT-plain'
 sourceCompatibility = '17'
 
 
