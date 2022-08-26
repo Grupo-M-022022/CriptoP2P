@@ -25,7 +25,7 @@ compileTestJava.options.encoding = 'utf-8'
 jar {
     manifest {
         attributes (
-                'Main-Class': 'car.edu.unq.CriptoP2P.CriptoP2PApplication'
+                'Main-Class': 'ar.edu.unq.CriptoP2P.CriptoP2PApplication'
         )
     }
 }
