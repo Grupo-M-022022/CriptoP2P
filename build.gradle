@@ -5,7 +5,7 @@ plugins {
 	id 'eclipse'
 }
 
-group = 'ar.edu.unq'
+group = 'ar.edu.unq.CriptoP2P'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
