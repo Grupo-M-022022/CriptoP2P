@@ -1,3 +1,3 @@
 # CriptoP2P
 
-[![Gradle Package](https://github.com/Grupo-M-022022/CriptoP2P/actions/workflows/gradle-publish.yml/badge.svg)](https://github.com/Grupo-M-022022/CriptoP2P/actions/workflows/gradle-publish.yml)
+[![Java CI with Gradle](https://github.com/Grupo-M-022022/CriptoP2P/actions/workflows/gradle.yml/badge.svg)](https://github.com/Grupo-M-022022/CriptoP2P/actions/workflows/gradle.yml)
