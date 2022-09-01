@@ -18,17 +18,9 @@ eclipseJdt {
 		}
 	}
 }
-apply plugin: 'java-library'
+
 compileJava.options.encoding = 'utf-8'
 compileTestJava.options.encoding = 'utf-8'
-
-jar {
-    manifest {
-        attributes (
-                'Main-Class': 'ar.edu.unq.CriptoP2P.CriptoP2PApplication'
-        )
-    }
-}
 
 repositories {
 	mavenLocal()
@@ -40,6 +32,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
