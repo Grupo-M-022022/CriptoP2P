@@ -14,7 +14,8 @@ public class UsuarioController {
 	
 	@PostMapping("/registrarUsuario")
 	public Usuario registrarUsuario(@RequestBody Usuario usuario) {
-		Usuario nuevoUsuario = new Usuario(usuario.getEmail(), usuario.getPassword());
+		Usuario nuevoUsuario = new Usuario(usuario.getEmail(), usuario.getPassword(), usuario.getDireccion(), 
+								           usuario.getCVUMercadoPago(), usuario.getDireccionBilleteraDeCriptoActivos());
 		return nuevoUsuario;
 	}
 	
