@@ -10,26 +10,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ar.edu.unq.CriptoP2P.model.Usuario;
-import ar.edu.unq.CriptoP2P.persistence.IUsuarioRepository;
+import ar.edu.unq.CriptoP2P.service.interfaces.IUsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
 	
 	@Autowired
-	private IUsuarioRepository usuarioRepository;
+	private IUsuarioService usuarioService;
 	
-	@PostMapping("/registrarUsuario")
-	public ResponseEntity<Usuario> registrarUsuario(@RequestBody Usuario usuario) {
-		Usuario nuevoUsuario = new Usuario(usuario.getEmail(), usuario.getPassword(), usuario.getDireccion(), 
-								           usuario.getCVUMercadoPago(), usuario.getDireccionBilleteraDeCriptoActivos());
-		usuarioRepository.save(nuevoUsuario);
-		return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
+	@PostMapping("/registrar")
+	public ResponseEntity<Usuario> registrar(@RequestBody Usuario usuario) {
+		usuarioService.save(usuario);
+		return new ResponseEntity<>(usuario, HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/usuarios")
 	public ResponseEntity<List<Usuario>> usuarios() {
-		List<Usuario> usuarios = usuarioRepository.findAll();
-		return new ResponseEntity<>(usuarios, HttpStatus.OK);
+		return new ResponseEntity<>(usuarioService.findAll(), HttpStatus.OK);
 	}
 }
