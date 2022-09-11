@@ -1,4 +1,4 @@
-package ar.edu.unq.CriptoP2P.model;
+package ar.edu.unq.CriptoP2P.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
