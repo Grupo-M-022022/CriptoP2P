@@ -1,14 +1,14 @@
-package ar.edu.unq.CriptoP2P.service.imp;
+package ar.edu.unq.criptop2p.service.imp;
 
 import java.util.List;
 
-import ar.edu.unq.CriptoP2P.model.dto.UsuarioDTO;
-import ar.edu.unq.CriptoP2P.service.interfaces.IUsuarioService;
-import ar.edu.unq.CriptoP2P.utility.AutoMapperComponent;
+import ar.edu.unq.criptop2p.model.dto.UsuarioDTO;
+import ar.edu.unq.criptop2p.service.interfaces.IUsuarioService;
+import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ar.edu.unq.CriptoP2P.model.entity.Usuario;
-import ar.edu.unq.CriptoP2P.persistence.IUsuarioRepository;
+import ar.edu.unq.criptop2p.model.entity.Usuario;
+import ar.edu.unq.criptop2p.persistence.IUsuarioRepository;
 
 @Service
 public class UsuarioServiceImp implements IUsuarioService {

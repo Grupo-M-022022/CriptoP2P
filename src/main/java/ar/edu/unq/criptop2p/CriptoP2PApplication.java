@@ -1,7 +1,7 @@
-package ar.edu.unq.CriptoP2P;
+package ar.edu.unq.criptop2p;
 
-import ar.edu.unq.CriptoP2P.model.dto.UsuarioDTO;
-import ar.edu.unq.CriptoP2P.model.entity.Usuario;
+import ar.edu.unq.criptop2p.model.dto.UsuarioDTO;
+import ar.edu.unq.criptop2p.model.entity.Usuario;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
-package ar.edu.unq.CriptoP2P.service.interfaces;
+package ar.edu.unq.criptop2p.service.interfaces;
 
 import java.util.List;
-import ar.edu.unq.CriptoP2P.model.dto.UsuarioDTO;
+import ar.edu.unq.criptop2p.model.dto.UsuarioDTO;
 
 public interface IUsuarioService {
 	List<UsuarioDTO> findAll();

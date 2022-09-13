@@ -1,13 +1,10 @@
-package ar.edu.unq.CriptoP2P.model.dto;
-
+package ar.edu.unq.criptop2p.model.dto;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
-
 import javax.validation.constraints.*;
 
 public class UsuarioDTO {
-    private long Id;
+    private long id;
     @NotNull
     @Email
     @NotBlank
@@ -22,20 +19,19 @@ public class UsuarioDTO {
     @Length(min = 22, max = 22)
     @NotNull
     @NotBlank
-    private String CVUMercadoPago;
+    private String cvuMercadoPago;
     @Length(max = 8, min = 8)
     @NotBlank
     @NotNull
     private String direccionBilleteraDeCriptoActivos;
-
     public UsuarioDTO() {}
 
     public long getId() {
-        return this.Id;
+        return id;
     }
 
     public void setId(long id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getEmail() {
@@ -53,26 +49,28 @@ public class UsuarioDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String dir) {
-        this.direccion = dir;
-    }
-    public String getCVUMercadoPago() {
-        return CVUMercadoPago;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public void setCVUMercadoPago(String cvu) {
-        this.CVUMercadoPago = cvu ;
+    public String getCvuMercadoPago() {
+        return cvuMercadoPago;
+    }
+
+    public void setCvuMercadoPago(String cvuMercadoPago) {
+        this.cvuMercadoPago = cvuMercadoPago;
     }
 
     public String getDireccionBilleteraDeCriptoActivos() {
         return direccionBilleteraDeCriptoActivos;
     }
 
-    public void setDireccionBilleteraDeCriptoActivos(String dbc) {
-        this.direccionBilleteraDeCriptoActivos = dbc;
+    public void setDireccionBilleteraDeCriptoActivos(String direccionBilleteraDeCriptoActivos) {
+        this.direccionBilleteraDeCriptoActivos = direccionBilleteraDeCriptoActivos;
     }
 }

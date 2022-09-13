@@ -1,7 +1,7 @@
-package ar.edu.unq.CriptoP2P.webservice;
+package ar.edu.unq.criptop2p.webservice;
 
 import java.util.List;
-import ar.edu.unq.CriptoP2P.model.dto.UsuarioDTO;
+import ar.edu.unq.criptop2p.model.dto.UsuarioDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ar.edu.unq.CriptoP2P.service.interfaces.IUsuarioService;
+import ar.edu.unq.criptop2p.service.interfaces.IUsuarioService;
 import javax.validation.Valid;
 
 @RestController

@@ -1,4 +1,4 @@
-package ar.edu.unq.CriptoP2P.utility;
+package ar.edu.unq.criptop2p.utility;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
