@@ -1,12 +1,31 @@
 package ar.edu.unq.CriptoP2P.model.dto;
 
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
+
+import javax.validation.constraints.*;
+
 public class UsuarioDTO {
     private long Id;
+    @NotNull
+    @Email
+    @NotBlank
     private String email;
+    @NotNull
+    @NotBlank
     private String password;
+    @NotNull
+    @NotBlank
     private String direccion;
-    private Integer CVUMercadoPago;
+
+    @Length(min = 22, max = 22)
+    @NotNull
+    @NotBlank
+    private String CVUMercadoPago;
+    @Length(max = 8, min = 8)
+    @NotBlank
+    @NotNull
     private String direccionBilleteraDeCriptoActivos;
 
     public UsuarioDTO() {}
@@ -41,11 +60,11 @@ public class UsuarioDTO {
     public void setDireccion(String dir) {
         this.direccion = dir;
     }
-    public Integer getCVUMercadoPago() {
+    public String getCVUMercadoPago() {
         return CVUMercadoPago;
     }
 
-    public void setCVUMercadoPago(Integer cvu) {
+    public void setCVUMercadoPago(String cvu) {
         this.CVUMercadoPago = cvu ;
     }
 

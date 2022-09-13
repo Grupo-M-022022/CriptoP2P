@@ -20,14 +20,14 @@ public class Usuario {
 	private String direccion;
 	
 	@Column(length = 22)
-	private Integer CVUMercadoPago;
+	private String CVUMercadoPago;
 	
 	@Column(length = 8)
 	private String direccionBilleteraDeCriptoActivos;
 	
 	public Usuario() {}
 	
-	public Usuario(String email, String password, String direccion, Integer CVUMercadoPago,
+	public Usuario(String email, String password, String direccion, String CVUMercadoPago,
 				   String direccionBilleteraDeCriptoActivos) {
 		
 		setEmail(email);
@@ -67,11 +67,11 @@ public class Usuario {
 	public void setDireccion(String dir) {
 		this.direccion = dir;
 	}
-	public Integer getCVUMercadoPago() {
+	public String getCVUMercadoPago() {
 		return CVUMercadoPago;
 	}
 	
-	public void setCVUMercadoPago(Integer cvu) {
+	public void setCVUMercadoPago(String cvu) {
 		this.CVUMercadoPago = cvu ;
 	}
 	

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ar.edu.unq.CriptoP2P.service.interfaces.IUsuarioService;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/usuario")
@@ -19,7 +20,7 @@ public class UsuarioController {
 	private IUsuarioService usuarioService;
 
 	@PostMapping("/registrar")
-	public ResponseEntity<UsuarioDTO> registrar(@RequestBody UsuarioDTO usuarioDTO) {
+	public ResponseEntity<UsuarioDTO> registrar(@Valid @RequestBody UsuarioDTO usuarioDTO) {
 		usuarioService.save(usuarioDTO);
 		return new ResponseEntity<>(usuarioDTO, HttpStatus.CREATED);
 	}
