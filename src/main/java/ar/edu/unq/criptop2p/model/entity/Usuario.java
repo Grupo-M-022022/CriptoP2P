@@ -1,4 +1,4 @@
-package ar.edu.unq.CriptoP2P.model;
+package ar.edu.unq.criptop2p.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,38 +10,36 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Usuarios")
 public class Usuario {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long Id;
+	@Column(unique = true, nullable = false)
+	private long id;
 	private String email;
 	private String password;
 	private String direccion;
-	
 	@Column(length = 22)
-	private Integer CVUMercadoPago;
-	
+	private String cvuMercadoPago;
 	@Column(length = 8)
 	private String direccionBilleteraDeCriptoActivos;
-	
-	public Usuario() {}
-	
-	public Usuario(String email, String password, String direccion, Integer CVUMercadoPago,
+	public Usuario() {
+		// Este constructor es necesario para JPA
+	}
+	public Usuario(String email, String password, String direccion, String cvuMercadoPago,
 				   String direccionBilleteraDeCriptoActivos) {
 		
 		setEmail(email);
 		setPassword(password);
 		setDireccion(direccion);
-		setCVUMercadoPago(CVUMercadoPago); 										  
+		setCVUMercadoPago(cvuMercadoPago);
 		setDireccionBilleteraDeCriptoActivos(direccionBilleteraDeCriptoActivos); 
 	}
 
 	public long getId() {
-		return this.Id;
+		return this.id;
 	}
 
 	public void setId(long id) {
-		this.Id = id;
+		this.id = id;
 	}
 	
 	public String getEmail() {
@@ -66,12 +64,12 @@ public class Usuario {
 	public void setDireccion(String dir) {
 		this.direccion = dir;
 	}
-	public Integer getCVUMercadoPago() {
-		return CVUMercadoPago;
+	public String getCVUMercadoPago() {
+		return cvuMercadoPago;
 	}
 	
-	public void setCVUMercadoPago(Integer cvu) {
-		this.CVUMercadoPago = cvu ;
+	public void setCVUMercadoPago(String cvu) {
+		this.cvuMercadoPago = cvu ;
 	}
 	
 	public String getDireccionBilleteraDeCriptoActivos() {
