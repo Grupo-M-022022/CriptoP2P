@@ -24,7 +24,6 @@ public class UsuarioDTO {
     @NotBlank
     @NotNull
     private String direccionBilleteraDeCriptoActivos;
-    public UsuarioDTO() {}
 
     public long getId() {
         return id;

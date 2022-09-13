@@ -21,7 +21,9 @@ public class Usuario {
 	private String cvuMercadoPago;
 	@Column(length = 8)
 	private String direccionBilleteraDeCriptoActivos;
-	public Usuario() {}
+	public Usuario() {
+		// Este constructor es necesario para JPA
+	}
 	public Usuario(String email, String password, String direccion, String cvuMercadoPago,
 				   String direccionBilleteraDeCriptoActivos) {
 		
