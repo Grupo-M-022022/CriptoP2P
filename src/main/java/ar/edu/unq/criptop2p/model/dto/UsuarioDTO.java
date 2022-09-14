@@ -16,11 +16,11 @@ public class UsuarioDTO {
     @NotBlank
     private String direccion;
 
-    @Length(min = 22, max = 22)
+    @Length(message = "La longitud debe ser de 22 digitos.", min = 22, max = 22)
     @NotNull
     @NotBlank
     private String cvuMercadoPago;
-    @Length(max = 8, min = 8)
+    @Length(message = "La longitud debe ser de 8 digitos.", max = 8, min = 8)
     @NotBlank
     @NotNull
     private String direccionBilleteraDeCriptoActivos;
