@@ -1,7 +1,6 @@
 package ar.edu.unq.criptop2p.service.imp;
 
 import java.util.List;
-
 import ar.edu.unq.criptop2p.model.dto.UsuarioDTO;
 import ar.edu.unq.criptop2p.service.interfaces.IUsuarioService;
 import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
@@ -29,4 +28,9 @@ public class UsuarioServiceImp implements IUsuarioService {
 		usuarioRepository.save(usuarioEntity);
 	}
 
+	@Override
+	public UsuarioDTO getById(long id) {
+		Usuario usuario = usuarioRepository.getReferenceById(id);
+		return mapperComponent.To(usuario, UsuarioDTO.class);
+	}
 }
