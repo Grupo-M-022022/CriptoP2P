@@ -3,11 +3,9 @@ package ar.edu.unq.criptop2p.model.entity;
 import java.time.LocalDateTime;
 
 public class Criptomoneda {
-	public Criptomoneda(String nombre, Integer precio, LocalDateTime fechaYHoraDeCotizacion) {
-		setNombre(nombre);
-		setPrecio(precio);
-		setFechaYHoraDeCotizacion(fechaYHoraDeCotizacion);
-	}
+	private String nombre;
+	private Integer precio;
+	private LocalDateTime fechaYHoraDeCotizacion;
 
 	public String getNombre() {
 		return nombre;
@@ -17,15 +15,19 @@ public class Criptomoneda {
 		this.nombre = nombre;
 	}
 
+	public Integer getPrecio() {
+		return precio;
+	}
+
 	public void setPrecio(Integer precio) {
 		this.precio = precio;
 	}
 
-	public void setFechaYHoraDeCotizacion(LocalDateTime fechaYHoraCotizada) {
-		this.fechaYHoraDeCotizacion = fechaYHoraCotizada;
+	public LocalDateTime getFechaYHoraDeCotizacion() {
+		return fechaYHoraDeCotizacion;
 	}
 
-	private String nombre;
-	private Integer precio;
-	private LocalDateTime fechaYHoraDeCotizacion;
+	public void setFechaYHoraDeCotizacion(LocalDateTime fechaYHoraDeCotizacion) {
+		this.fechaYHoraDeCotizacion = fechaYHoraDeCotizacion;
+	}
 }

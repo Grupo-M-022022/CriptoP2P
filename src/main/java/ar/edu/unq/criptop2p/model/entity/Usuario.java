@@ -21,17 +21,10 @@ public class Usuario {
 	private String cvuMercadoPago;
 	@Column(length = 8)
 	private String direccionBilleteraDeCriptoActivos;
+	private int cantidadOperaciones;
+	private byte reputacion;
 	public Usuario() {
 		// Este constructor es necesario para JPA
-	}
-	public Usuario(String email, String password, String direccion, String cvuMercadoPago,
-				   String direccionBilleteraDeCriptoActivos) {
-		
-		setEmail(email);
-		setPassword(password);
-		setDireccion(direccion);
-		setCVUMercadoPago(cvuMercadoPago);
-		setDireccionBilleteraDeCriptoActivos(direccionBilleteraDeCriptoActivos); 
 	}
 
 	public long getId() {
@@ -78,6 +71,17 @@ public class Usuario {
 	
 	public void setDireccionBilleteraDeCriptoActivos(String dbc) {
 		this.direccionBilleteraDeCriptoActivos = dbc;
+	}
+
+    public int getCantidadOperaciones() { return this.cantidadOperaciones; }
+	public void setCantidadOperaciones(int cantidadOperaciones) { this.cantidadOperaciones = cantidadOperaciones; }
+
+	public byte getReputacion() {
+		return reputacion;
+	}
+
+	public void setReputacion(byte reputacion) {
+		this.reputacion = reputacion;
 	}
 }
 

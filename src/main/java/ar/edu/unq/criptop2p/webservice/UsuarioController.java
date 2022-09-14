@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ar.edu.unq.criptop2p.service.interfaces.IUsuarioService;
-
-import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 @RestController
