@@ -5,11 +5,11 @@ import ar.edu.unq.criptop2p.utility.enums.TipoIntencion;
 public class Intencion {
     private Criptomoneda criptoactivo;
     private long cantidad;
-    private Cotizacion cotizacion;
+    private double cotizacion;
     private double monto;
     private Usuario Usuario;
-    private TipoIntencion Operación;
-    private boolean Activo;
+    private TipoIntencion operacion;
+    private boolean activo;
 
     public Criptomoneda getCriptoactivo() {
         return criptoactivo;
@@ -27,51 +27,49 @@ public class Intencion {
         this.cantidad = cantidad;
     }
 
-    public Cotizacion getCotizacion() {
-        return cotizacion;
+    public double getCotizacion() {
+        return this.cotizacion;
     }
 
-    public void setCotizacion(Cotizacion cotizacion) {
+    public void setCotizacion(double cotizacion) {
         this.cotizacion = cotizacion;
     }
 
-    public double getMonto() {
-        return monto;
-    }
+    public double getMonto() { return monto; }
 
     public void setMonto(double monto) {
         this.monto = monto;
     }
 
-    public ar.edu.unq.criptop2p.model.entity.Usuario getUsuario() {
+    public Usuario getUsuario() {
         return Usuario;
     }
 
-    public void setUsuario(ar.edu.unq.criptop2p.model.entity.Usuario usuario) {
+    public void setUsuario(Usuario usuario) {
         Usuario = usuario;
     }
 
-    public TipoIntencion getOperación() {
-        return Operación;
-    }
-
-    public void setOperación(TipoIntencion operación) {
-        Operación = operación;
+    public TipoIntencion getOperacion() {
+        return this.operacion;
     }
 
     public int getCantidadOperaciones() {
         return getUsuario().getCantidadOperaciones();
     }
 
-    public byte getReputación() {
+    public byte getReputacion() {
         return getUsuario().getReputacion();
     }
 
     public boolean sActivo() {
-        return Activo;
+        return activo;
     }
 
     public void setActivo(boolean activo) {
-        Activo = activo;
+        this.activo = activo;
+    }
+
+    public void setOperacion(TipoIntencion operacion) {
+        this.operacion = operacion;
     }
 }
