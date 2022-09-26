@@ -22,7 +22,7 @@ public class Usuario {
 	@Column(length = 8)
 	private String direccionBilleteraDeCriptoActivos;
 	private int cantidadOperaciones;
-	private byte reputacion;
+	private int reputacion;
 	public Usuario() {
 		// Este constructor es necesario para JPA
 	}
@@ -76,11 +76,11 @@ public class Usuario {
     public int getCantidadOperaciones() { return this.cantidadOperaciones; }
 	public void setCantidadOperaciones(int cantidadOperaciones) { this.cantidadOperaciones = cantidadOperaciones; }
 
-	public byte getReputacion() {
+	public int getReputacion() {
 		return reputacion;
 	}
 
-	public void setReputacion(byte reputacion) {
+	public void setReputacion(int reputacion) {
 		this.reputacion = reputacion;
 	}
 }

@@ -57,7 +57,7 @@ public class Intencion {
         return getUsuario().getCantidadOperaciones();
     }
 
-    public byte getReputacion() {
+    public int getReputacion() {
         return getUsuario().getReputacion();
     }
 
