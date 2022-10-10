@@ -2,22 +2,47 @@ package ar.edu.unq.criptop2p.model.entity;
 
 import ar.edu.unq.criptop2p.utility.enums.TipoIntencion;
 
+import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Intenciones")
 public class Intencion {
-    private Criptomoneda criptoactivo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(unique = true, nullable = false)
+    private long id;
+//    @Column(unique = true,nullable = false)
+//
+//    private Criptomoneda criptoactivo;
+
     private long cantidad;
     private double cotizacion;
     private double monto;
-    private Usuario Usuario;
+
+//    @Column(unique = true)
+//    private Usuario usuarioConIntencion;
+//    @Column(name = "Compra_Venta")
+//    @Enumerated(EnumType.ORDINAL)
     private TipoIntencion operacion;
     private boolean activo;
-
-    public Criptomoneda getCriptoactivo() {
-        return criptoactivo;
+    public Intencion() {
+        // Este constructor es necesario para JPA
     }
 
-    public void setCriptoactivo(Criptomoneda criptoactivo) {
-        this.criptoactivo = criptoactivo;
-    }
+//    public Criptomoneda getCriptoactivo() {
+//        return criptoactivo;
+//    }
+//
+//    public void setCriptoactivo(Criptomoneda criptoactivo) {
+//        this.criptoactivo = criptoactivo;
+//    }
 
     public long getCantidad() {
         return cantidad;
@@ -41,25 +66,16 @@ public class Intencion {
         this.monto = monto;
     }
 
-    public Usuario getUsuario() {
-        return Usuario;
-    }
 
-    public void setUsuario(Usuario usuario) {
-        Usuario = usuario;
-    }
+//    public void setUsuarioConIntencion(Usuario usuarioConIntencion) {
+//        this.usuarioConIntencion = usuarioConIntencion;
+//    }
+//    public Usuario getUsuarioConIntencion() { return usuarioConIntencion; }
 
     public TipoIntencion getOperacion() {
-        return this.operacion;
+        return operacion;
     }
 
-    public int getCantidadOperaciones() {
-        return getUsuario().getCantidadOperaciones();
-    }
-
-    public int getReputacion() {
-        return getUsuario().getReputacion();
-    }
 
     public boolean sActivo() {
         return activo;
@@ -72,4 +88,17 @@ public class Intencion {
     public void setOperacion(TipoIntencion operacion) {
         this.operacion = operacion;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
 }
+

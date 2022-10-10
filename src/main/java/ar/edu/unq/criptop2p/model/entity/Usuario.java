@@ -1,11 +1,7 @@
 package ar.edu.unq.criptop2p.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "Usuarios")
@@ -23,6 +19,8 @@ public class Usuario {
 	private String direccionBilleteraDeCriptoActivos;
 	private int cantidadOperaciones;
 	private int reputacion;
+
+
 	public Usuario() {
 		// Este constructor es necesario para JPA
 	}
@@ -83,6 +81,9 @@ public class Usuario {
 	public void setReputacion(int reputacion) {
 		this.reputacion = reputacion;
 	}
+
+
+
 }
 
 
