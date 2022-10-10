@@ -2,6 +2,7 @@ package ar.edu.unq.criptop2p.service.imp;
 
 import ar.edu.unq.criptop2p.model.dto.IntencionDTO;
 import ar.edu.unq.criptop2p.model.entity.Intencion;
+import ar.edu.unq.criptop2p.model.entity.Usuario;
 import ar.edu.unq.criptop2p.persistence.IIntencionRepository;
 import ar.edu.unq.criptop2p.service.interfaces.IIntencionService;
 import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
@@ -28,6 +29,13 @@ public class IntencionServiceImp implements IIntencionService {
     @Override
     public void save(IntencionDTO intencionDTO) {
         Intencion intencionEntity = mapperComponent.To(intencionDTO, Intencion.class);
+
+        // deberia hacerlo automaticamente el mapperComponent // TODO: investigar por que automapper no hace nested map
+        Usuario newUsuarioConIntencion = new Usuario();
+        newUsuarioConIntencion.setId(intencionDTO.usuarioConIntencion.getId());
+        intencionEntity.setUsuarioConIntencion(newUsuarioConIntencion);
+        //
+
         intencionRepository.save(intencionEntity);
     }
     @Override

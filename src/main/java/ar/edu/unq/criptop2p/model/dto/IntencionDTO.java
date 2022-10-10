@@ -9,7 +9,7 @@ public class IntencionDTO {
 
     private long id;
 //    @NotNull
-//    private Usuario usuarioConIntencion;
+      public UsuarioDTO usuarioConIntencion;
 //    @NotNull
 //    private Criptomoneda criptoactivo;
 //    @NotNull
@@ -38,15 +38,15 @@ public class IntencionDTO {
 //        return criptoactivo;
 //    }
 
-//    public Usuario getUsuario() {
-//        return usuarioConIntencion;
-//    }
+    public UsuarioDTO getUsuario() {
+        return usuarioConIntencion;
+    }
 //
 //
 //
-//    public void setUsuario(Usuario usuario) {
-//        this.usuarioConIntencion = usuario;
-//    }
+    public void setUsuario(UsuarioDTO usuario) {
+        this.usuarioConIntencion = usuario;
+    }
 //    public TipoIntencion getOperacion() {
 //        return operacion;
 //    }

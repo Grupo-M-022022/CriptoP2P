@@ -27,7 +27,8 @@ public class Intencion {
     private double monto;
 
 //    @Column(unique = true)
-//    private Usuario usuarioConIntencion;
+      @OneToOne
+      public Usuario usuarioConIntencion;
 //    @Column(name = "Compra_Venta")
 //    @Enumerated(EnumType.ORDINAL)
     private TipoIntencion operacion;
@@ -67,10 +68,10 @@ public class Intencion {
     }
 
 
-//    public void setUsuarioConIntencion(Usuario usuarioConIntencion) {
-//        this.usuarioConIntencion = usuarioConIntencion;
-//    }
-//    public Usuario getUsuarioConIntencion() { return usuarioConIntencion; }
+    public void setUsuarioConIntencion(Usuario usuarioConIntencion) {
+        this.usuarioConIntencion = usuarioConIntencion;
+    }
+    public Usuario getUsuarioConIntencion() { return usuarioConIntencion; }
 
     public TipoIntencion getOperacion() {
         return operacion;
