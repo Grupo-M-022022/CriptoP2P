@@ -3,7 +3,6 @@ package ar.edu.unq.criptop2p.model.entity;
 import ar.edu.unq.criptop2p.utility.enums.TipoIntencion;
 
 import javax.persistence.*;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,11 +25,10 @@ public class Intencion {
     private double cotizacion;
     private double monto;
 
-//    @Column(unique = true)
-      @OneToOne
-      public Usuario usuarioConIntencion;
-//    @Column(name = "Compra_Venta")
-//    @Enumerated(EnumType.ORDINAL)
+    @OneToOne
+    public Usuario UsuarioConIntencion;
+
+//  @Enumerated(EnumType.ORDINAL)
     private TipoIntencion operacion;
     private boolean activo;
     public Intencion() {
@@ -69,9 +67,9 @@ public class Intencion {
 
 
     public void setUsuarioConIntencion(Usuario usuarioConIntencion) {
-        this.usuarioConIntencion = usuarioConIntencion;
+        this.UsuarioConIntencion = usuarioConIntencion;
     }
-    public Usuario getUsuarioConIntencion() { return usuarioConIntencion; }
+    public Usuario getUsuarioConIntencion() { return UsuarioConIntencion; }
 
     public TipoIntencion getOperacion() {
         return operacion;

@@ -1,7 +1,6 @@
 package ar.edu.unq.criptop2p.utility;
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +9,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class AutoMapperComponent {
+
     @Autowired
     private ModelMapper modelMapper;
 

@@ -1,15 +1,12 @@
 package ar.edu.unq.criptop2p.model.dto;
 
-import ar.edu.unq.criptop2p.model.entity.Criptomoneda;
-import ar.edu.unq.criptop2p.model.entity.Usuario;
-import ar.edu.unq.criptop2p.utility.enums.TipoIntencion;
 import javax.validation.constraints.NotNull;
 
 public class IntencionDTO {
 
     private long id;
 //    @NotNull
-      public UsuarioDTO usuarioConIntencion;
+      public UsuarioDTO UsuarioConIntencion;
 //    @NotNull
 //    private Criptomoneda criptoactivo;
 //    @NotNull
@@ -21,7 +18,6 @@ public class IntencionDTO {
     private double cotizacion;
     @NotNull
     private double monto;
-
 
     public long getId() {
         return id;
@@ -39,14 +35,13 @@ public class IntencionDTO {
 //    }
 
     public UsuarioDTO getUsuario() {
-        return usuarioConIntencion;
+        return UsuarioConIntencion;
     }
-//
-//
-//
+
     public void setUsuario(UsuarioDTO usuario) {
-        this.usuarioConIntencion = usuario;
+        this.UsuarioConIntencion = usuario;
     }
+
 //    public TipoIntencion getOperacion() {
 //        return operacion;
 //    }
