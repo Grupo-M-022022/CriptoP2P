@@ -1,13 +1,8 @@
-package ar.edu.unq.criptop2p.model.entity;
+package ar.edu.unq.criptop2p.model.dto;
 
-public class Cotizacion {
-    //private Criptomoneda criptoactivo;
-
-    //private double cotizacion;
-
+public class CotizacionDTO {
     private String symbol;
     private double price;
-
 
     public String getSymbol() {
         return symbol;

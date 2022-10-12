@@ -7,7 +7,7 @@ import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ar.edu.unq.criptop2p.model.entity.Usuario;
-import ar.edu.unq.criptop2p.persistence.IUsuarioRepository;
+import ar.edu.unq.criptop2p.persistence.interfaces.IUsuarioRepository;
 
 @Service
 public class UsuarioServiceImp implements IUsuarioService {
