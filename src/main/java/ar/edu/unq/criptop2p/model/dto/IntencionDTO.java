@@ -2,15 +2,16 @@ package ar.edu.unq.criptop2p.model.dto;
 
 import javax.validation.constraints.NotNull;
 
+
 public class IntencionDTO {
 
     private long id;
-//    @NotNull
+    @NotNull
       public UsuarioDTO UsuarioConIntencion;
-//    @NotNull
-//    private Criptomoneda criptoactivo;
-//    @NotNull
-//    private TipoIntencion operacion;
+    @NotNull
+    private CriptoMonedaDTO criptoactivo;
+    @NotNull
+    private String operacionDescripcion;
 
     @NotNull
     private long cantidad;
@@ -27,12 +28,22 @@ public class IntencionDTO {
         this.id = id;
     }
 
-//    public void setCriptoactivo(Criptomoneda criptoactivo) {
-//        this.criptoactivo = criptoactivo;
-//    }
-//    public Criptomoneda getCriptoactivo() {
-//        return criptoactivo;
-//    }
+    public IntencionDTO (UsuarioDTO usuarioDTO,CriptoMonedaDTO criptoactivoDto, String operacionDescripcion,
+                         long cantidad, double cotizacion, double monto){
+
+        setUsuario( usuarioDTO);
+        setCriptoactivo(criptoactivoDto);
+        setOperacionDescripcion(operacionDescripcion);
+        setCantidad(cantidad);
+        setCotizacion(cotizacion);
+        setMonto(monto);
+    }
+    public void setCriptoactivo(CriptoMonedaDTO criptoactivo) {
+        this.criptoactivo = criptoactivo;
+    }
+    public CriptoMonedaDTO getCriptoactivo() {
+        return criptoactivo;
+    }
 
     public UsuarioDTO getUsuario() {
         return UsuarioConIntencion;
@@ -42,13 +53,13 @@ public class IntencionDTO {
         this.UsuarioConIntencion = usuario;
     }
 
-//    public TipoIntencion getOperacion() {
-//        return operacion;
-//    }
-//
-//    public void setOperacion(TipoIntencion operacion) {
-//        this.operacion = operacion;
-//    }
+    public String getOperacionDescripcion() {
+        return operacionDescripcion;
+    }
+
+    public void setOperacionDescripcion(String operacionDescripcion) {
+        this.operacionDescripcion = operacionDescripcion;
+    }
 
     public long getCantidad() {
         return cantidad;

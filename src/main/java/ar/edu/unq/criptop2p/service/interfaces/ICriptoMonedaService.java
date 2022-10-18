@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface ICriptoMonedaService {
 	List<CriptoMonedaDTO> findAll();
-	void save(CriptoMonedaDTO criptoMoneda);
+	CriptoMonedaDTO save(CriptoMonedaDTO criptoMoneda);
 	CriptoMonedaDTO getById(long id);
 }

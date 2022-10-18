@@ -8,6 +8,7 @@ import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CriptoMonedaServiceImp implements ICriptoMonedaService {
@@ -23,14 +24,15 @@ public class CriptoMonedaServiceImp implements ICriptoMonedaService {
 	}
 
 	@Override
-	public void save(CriptoMonedaDTO criptoMonedaDTO) {
+	public CriptoMonedaDTO save(CriptoMonedaDTO criptoMonedaDTO) {
 		CriptoMoneda criptoMoneda = mapperComponent.To(criptoMonedaDTO, CriptoMoneda.class);
 		criptoModedaRepository.save(criptoMoneda);
+		return  mapperComponent.To(criptoMoneda, CriptoMonedaDTO.class);
 	}
 
 	@Override
 	public CriptoMonedaDTO getById(long id) {
-		CriptoMoneda criptoMoneda = criptoModedaRepository.getReferenceById(id);
-		return mapperComponent.To(criptoMoneda, CriptoMonedaDTO.class);
+		Optional<CriptoMoneda> criptoMoneda = criptoModedaRepository.findById(id);
+		return mapperComponent.To(criptoMoneda.get(), CriptoMonedaDTO.class);
 	}
 }

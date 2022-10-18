@@ -11,18 +11,28 @@ public class CriptoMoneda {
 	@Column(unique = true, nullable = false)
 	private long id;
 	private String nombre;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Cotizacion> cotizaciones;
 
 	public String getNombre() {
 		return nombre;
 	}
+	public CriptoMoneda (){
 
+	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	public void addCotizacion(Cotizacion cotizacion) {
-		this.cotizaciones.add(cotizacion);
+		this.getCotizaciones().add(cotizacion);
+	}
+
+	public List<Cotizacion> getCotizaciones() {
+		return cotizaciones;
+	}
+
+	public void setCotizaciones(List<Cotizacion> cotizaciones) {
+		this.cotizaciones = cotizaciones;
 	}
 }

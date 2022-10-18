@@ -25,6 +25,16 @@ public class UsuarioDTO {
     @NotNull
     private String direccionBilleteraDeCriptoActivos;
 
+    public UsuarioDTO(){
+
+    }
+    public UsuarioDTO(String email,String direccion,String password, String cvuMercadoPago,String direccionBilleteraDeCriptoActivos){
+        setEmail(email);
+        setPassword(password);
+        setDireccion(direccion);
+        setCvuMercadoPago(cvuMercadoPago);
+        setDireccionBilleteraDeCriptoActivos(direccionBilleteraDeCriptoActivos);
+    }
     public long getId() {
         return id;
     }

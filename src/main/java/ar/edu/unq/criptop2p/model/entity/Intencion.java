@@ -30,6 +30,8 @@ public class Intencion {
     private TipoIntencion operacion;
     private boolean activo;
 
+    private String operacionDescripcion;
+
     public CriptoMoneda getCriptoactivo() {
         return criptoactivo;
     }
@@ -76,6 +78,14 @@ public class Intencion {
     }
     public boolean isActivo() {
         return activo;
+    }
+
+    public String getOperacionDescripcion() {
+        return operacion.name();
+    }
+
+    public void setOperacionDescripcion(String operacionDescripcion) {
+        this.operacionDescripcion = operacionDescripcion;
     }
 }
 

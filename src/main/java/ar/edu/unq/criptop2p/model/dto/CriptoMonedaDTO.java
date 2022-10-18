@@ -7,6 +7,9 @@ public class CriptoMonedaDTO {
     private String nombre;
     private List<CotizacionDTO> cotizaciones;
 
+    public CriptoMonedaDTO(){
+
+    }
     public CriptoMonedaDTO(String nombre) {
         setNombre(nombre);
     }
@@ -25,5 +28,13 @@ public class CriptoMonedaDTO {
 
     public void setCotizaciones(List<CotizacionDTO> cotizaciones) {
         this.cotizaciones = cotizaciones;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

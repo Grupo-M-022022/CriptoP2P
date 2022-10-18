@@ -27,6 +27,9 @@ public class Cotizacion {
         return fechaYHoraDeCotizacion;
     }
 
+    public Cotizacion(){
+
+    }
     public void setFechaYHoraDeCotizacion(Date fechaYHoraDeCotizacion) {
         this.fechaYHoraDeCotizacion = fechaYHoraDeCotizacion;
     }
