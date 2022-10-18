@@ -1,11 +1,8 @@
 package ar.edu.unq.criptop2p.model.dto;
 
-public class CotizacionDTO {
+public class CotizacionBinanceDTO {
     private String symbol;
     private double price;
-
-    public CotizacionDTO(String symbol) {
-    }
 
     public String getSymbol() {
         return symbol;

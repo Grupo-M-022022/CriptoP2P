@@ -1,9 +1,8 @@
 package ar.edu.unq.criptop2p.persistence.interfaces;
 
 import ar.edu.unq.criptop2p.model.entity.Cotizacion;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface ICotizacionRepository extends JpaRepository<Cotizacion, Long> {
 
-public interface ICotizacionRepository {
-    Cotizacion[] getCotizaciones();
 }

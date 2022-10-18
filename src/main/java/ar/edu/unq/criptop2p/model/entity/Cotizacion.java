@@ -1,21 +1,19 @@
 package ar.edu.unq.criptop2p.model.entity;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name = "Cotizaciones")
 public class Cotizacion {
-    //private Criptomoneda criptoactivo;
-
-    //private double cotizacion;
-
-    private String symbol;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(unique = true, nullable = false)
+    private long id;
+    @OneToOne
+    private CriptoMoneda criptoactivo;
     private double price;
-
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
+    private Date fechaYHoraDeCotizacion;
 
     public double getPrice() {
         return price;
@@ -23,5 +21,21 @@ public class Cotizacion {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Date getFechaYHoraDeCotizacion() {
+        return fechaYHoraDeCotizacion;
+    }
+
+    public void setFechaYHoraDeCotizacion(Date fechaYHoraDeCotizacion) {
+        this.fechaYHoraDeCotizacion = fechaYHoraDeCotizacion;
+    }
+
+    public CriptoMoneda getCriptoactivo() {
+        return criptoactivo;
+    }
+
+    public void setCriptoactivo(CriptoMoneda criptoactivo) {
+        this.criptoactivo = criptoactivo;
     }
 }

@@ -1,31 +1,26 @@
 package ar.edu.unq.criptop2p.model.entity;
 
 public class Transaccion {
-    private Intencion venta;
-    private Intencion compra;
+    private Intencion intencion;
+    private Usuario usuario;
     private EstadoTransaccion estadoTransaccion;
 
     public EstadoTransaccion getEstado() {
         return estadoTransaccion;
     }
-
     public void setEstado(EstadoTransaccion estadoTransaccion) {
         this.estadoTransaccion = estadoTransaccion;
     }
-
-    public Intencion getVenta() {
-        return venta;
+    public Intencion getIntencion() {
+        return intencion;
     }
-
-    public void setVenta(Intencion venta) {
-        this.venta = venta;
+    public void setIntencion(Intencion intencion) {
+        this.intencion = intencion;
     }
-
-    public Intencion getCompra() {
-        return compra;
+    public Usuario getUsuario() {
+        return usuario;
     }
-
-    public void setCompra(Intencion compra) {
-        this.compra = compra;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

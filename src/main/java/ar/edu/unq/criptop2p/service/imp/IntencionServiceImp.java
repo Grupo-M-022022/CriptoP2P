@@ -7,7 +7,6 @@ import ar.edu.unq.criptop2p.service.interfaces.IIntencionService;
 import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -16,6 +15,7 @@ public class IntencionServiceImp implements IIntencionService {
     private AutoMapperComponent autoMapper;
     @Autowired
     IIntencionRepository intencionRepository;
+
     @Override
     public List<IntencionDTO> findAll() {
         List<Intencion> intenciones = intencionRepository.findAll();
@@ -23,10 +23,18 @@ public class IntencionServiceImp implements IIntencionService {
     }
 
     @Override
+    public List<IntencionDTO> findAllActive() {
+        List<Intencion> intenciones = intencionRepository.findAllActiveUsers();
+        return autoMapper.ToList(intenciones ,IntencionDTO.class);
+    }
+
+    @Override
     public void save(IntencionDTO intencionDTO) {
         Intencion intencionEntity = autoMapper.To(intencionDTO, Intencion.class);
+        intencionEntity.setActivo(true);
         intencionRepository.save(intencionEntity);
     }
+
     @Override
     public  IntencionDTO getById(long id){
         Intencion intencion = intencionRepository.getReferenceById(id);
