@@ -15,7 +15,7 @@ class UsuarioTest {
     void setUpUsuario() {
         usuario.setEmail("desaCripto@gmail.com");
         usuario.setPassword("criptoPass");
-        usuario.setCVUMercadoPago("1234567890123456789012");
+        usuario.setCvuMercadoPago("1234567890123456789012");
         usuario.setDireccion("Bransen 805");
         usuario.setDireccionBilleteraDeCriptoActivos("12345678");
         usuario.setCantidadOperaciones(0);
@@ -26,7 +26,7 @@ class UsuarioTest {
     void testModeloUsuario() {
         assertEquals("desaCripto@gmail.com",usuario.getEmail());
         assertEquals("Bransen 805", usuario.getDireccion());
-        assertEquals("1234567890123456789012", usuario.getCVUMercadoPago());
+        assertEquals("1234567890123456789012", usuario.getCvuMercadoPago());
         assertEquals("12345678", usuario.getDireccionBilleteraDeCriptoActivos());
         assertEquals(0, usuario.getCantidadOperaciones());
         assertEquals(0, usuario.getReputacion());
