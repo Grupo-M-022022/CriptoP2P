@@ -21,8 +21,6 @@ public class Bootstrap  implements CommandLineRunner {
     private IUsuarioService usuarioService;
     @Autowired
     private IIntencionService intencionService;
-    @Autowired
-    private ICotizacionService cotizacionService;
 
     @Override
     public void run(String... args) throws Exception {

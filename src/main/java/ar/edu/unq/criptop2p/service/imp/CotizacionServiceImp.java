@@ -12,7 +12,7 @@ import ar.edu.unq.criptop2p.service.interfaces.ICotizacionService;
 import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,8 +28,15 @@ public class CotizacionServiceImp implements ICotizacionService {
     private ICriptoModedaRepository criptoModedaRepository;
 
     public List<CotizacionDTO> getCotizaciones() {
-        List<Cotizacion> cotizaciones = cotizacionRepository.findAll();
-        return autoMapper.ToList(cotizaciones, CotizacionDTO.class);
+        List<CriptoMoneda> criptoMonedas = criptoModedaRepository.findAll();
+        List<CotizacionDTO> cotizacionesDTO = new ArrayList<>();
+        for(CriptoMoneda cripto : criptoMonedas){
+            CotizacionDTO cotizacion = new CotizacionDTO();
+            cotizacion.setSymbol(cripto.getNombre());
+            cotizacion.setPrice(cripto.getUltimaCotizacion());
+            cotizacionesDTO.add(cotizacion);
+        }
+        return cotizacionesDTO;
     }
 
     @Override
@@ -49,6 +56,11 @@ public class CotizacionServiceImp implements ICotizacionService {
     }
 
     @Override
+    public void save(CotizacionDTO cotizacion) {
+        cotizacionRepository.save(autoMapper.To(cotizacion, Cotizacion.class));
+    }
+
+    @Override
     public void actualizarCotizaciones() {
         List<CotizacionBinance> cotizaciones = cotizacionBinanceRepository.getCotizaciones();
         for (CotizacionBinance cotizacionBinance : cotizaciones) {
@@ -61,10 +73,5 @@ public class CotizacionServiceImp implements ICotizacionService {
             cripto.addCotizacion(cotizacion);
             criptoModedaRepository.save(cripto);
         }
-    }
-
-    @Override
-    public void save(CotizacionDTO cotizacion) {
-        cotizacionRepository.save(autoMapper.To(cotizacion, Cotizacion.class));
     }
 }

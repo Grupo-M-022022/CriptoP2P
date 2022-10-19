@@ -16,8 +16,13 @@ public class CriptoMoneda {
 	private long id;
 	private String nombre;
 	@OneToMany(fetch = FetchType.EAGER)
+	@OrderBy("fechaYHoraDeCotizacion DESC")
 	private List<Cotizacion> cotizaciones;
+	private double ultimaCotizacion;
 
+	public double getUltimaCotizacion() {
+		return cotizaciones.get(0).getPrice();
+	}
 	public void addCotizacion(Cotizacion cotizacion) {
 		this.getCotizaciones().add(cotizacion);
 	}

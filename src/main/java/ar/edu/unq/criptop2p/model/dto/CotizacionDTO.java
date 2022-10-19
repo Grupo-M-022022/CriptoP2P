@@ -1,5 +1,8 @@
 package ar.edu.unq.criptop2p.model.dto;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class CotizacionDTO {
     private String symbol;
     private double price;
