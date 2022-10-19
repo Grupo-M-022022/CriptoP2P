@@ -7,6 +7,9 @@ import ar.edu.unq.criptop2p.service.interfaces.ICotizacionService;
 import ar.edu.unq.criptop2p.service.interfaces.ICriptoMonedaService;
 import ar.edu.unq.criptop2p.service.interfaces.IIntencionService;
 import ar.edu.unq.criptop2p.service.interfaces.IUsuarioService;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration;
 import org.modelmapper.convention.NamingConventions;
@@ -17,6 +20,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
+@Data
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
 public class CriptoP2PApplication {
 

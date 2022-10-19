@@ -1,6 +1,5 @@
 package ar.edu.unq.criptop2p.persistence.Imp;
 
-import ar.edu.unq.criptop2p.model.entity.Cotizacion;
 import ar.edu.unq.criptop2p.model.entity.CotizacionBinance;
 import ar.edu.unq.criptop2p.model.entity.CriptoMoneda;
 import ar.edu.unq.criptop2p.persistence.interfaces.ICotizacionBinanceRepository;
@@ -13,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CotizacionBinanceBinanceRepository implements ICotizacionBinanceRepository {
+public class CotizacionBinanceRepository implements ICotizacionBinanceRepository {
     @Autowired
     private ICriptoModedaRepository criptoModedaRepository;
-    private static final String uri = "https://api1.binance.com/api/v3/ticker/price?symbol=";
+    private static final String uri = "https://api1.binance.com/api/v   3/ticker/price?symbol=";
 
     public List<CotizacionBinance> getCotizaciones() {
         RestTemplate restTemplate = new RestTemplate();
