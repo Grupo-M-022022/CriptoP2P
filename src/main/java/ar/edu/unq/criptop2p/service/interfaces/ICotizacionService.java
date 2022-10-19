@@ -7,5 +7,6 @@ import java.util.List;
 public interface ICotizacionService {
     List<CotizacionDTO> getCotizaciones();
     List<CotizacionBinanceDTO> getCotizacionesBinance();
+    void actualizarCotizaciones();
     void save(CotizacionDTO usuario);
 }

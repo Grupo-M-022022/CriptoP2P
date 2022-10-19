@@ -9,8 +9,10 @@ import ar.edu.unq.criptop2p.service.interfaces.IIntencionService;
 import ar.edu.unq.criptop2p.service.interfaces.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+@Order(1)
 @Component
 public class Bootstrap  implements CommandLineRunner {
     @Autowired
@@ -37,8 +39,8 @@ public class Bootstrap  implements CommandLineRunner {
         criptoMonedaService.save(new CriptoMonedaDTO("BTCUSDT"));
         criptoMonedaService.save(new CriptoMonedaDTO("BNBUSDT"));
         criptoMonedaService.save(new CriptoMonedaDTO("ADAUSDT"));
-        criptoMonedaService.save(new CriptoMonedaDTO("TRXUSDT"));
-        criptoMonedaService.save(new CriptoMonedaDTO("AUDIOUSDT"));
+        CriptoMonedaDTO cripto1 = criptoMonedaService.save(new CriptoMonedaDTO("TRXUSDT"));
+        CriptoMonedaDTO cripto2 = criptoMonedaService.save(new CriptoMonedaDTO("AUDIOUSDT"));
 
         //setUp
         UsuarioDTO usuario1 = new UsuarioDTO("user1@gmail.com","calle 10 esquina 77","1234" ,
@@ -47,9 +49,6 @@ public class Bootstrap  implements CommandLineRunner {
                 "1234567891234567894321","12340000");
         UsuarioDTO usuario3 = new UsuarioDTO("user3@yahoo.com","Zuviria 1024","MedialunasDeJamon" ,
                 "1234567891234560000000","10101109");
-
-        CriptoMonedaDTO cripto1 = new CriptoMonedaDTO("ALICEUSDT") ;
-        CriptoMonedaDTO cripto2 = new CriptoMonedaDTO("MATICUSDT") ;
 
         usuario1 = usuarioService.save(usuario1);
         //usuarioService.save(usuario2);

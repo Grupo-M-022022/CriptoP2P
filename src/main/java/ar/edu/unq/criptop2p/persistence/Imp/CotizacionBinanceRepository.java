@@ -15,7 +15,7 @@ import java.util.List;
 public class CotizacionBinanceRepository implements ICotizacionBinanceRepository {
     @Autowired
     private ICriptoModedaRepository criptoModedaRepository;
-    private static final String uri = "https://api1.binance.com/api/v   3/ticker/price?symbol=";
+    private static final String uri = "https://api1.binance.com/api/v3/ticker/price?symbol=";
 
     public List<CotizacionBinance> getCotizaciones() {
         RestTemplate restTemplate = new RestTemplate();

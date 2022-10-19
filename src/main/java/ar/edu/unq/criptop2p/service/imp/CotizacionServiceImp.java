@@ -9,7 +9,6 @@ import ar.edu.unq.criptop2p.persistence.interfaces.ICotizacionBinanceRepository;
 import ar.edu.unq.criptop2p.persistence.interfaces.ICotizacionRepository;
 import ar.edu.unq.criptop2p.persistence.interfaces.ICriptoModedaRepository;
 import ar.edu.unq.criptop2p.service.interfaces.ICotizacionService;
-import ar.edu.unq.criptop2p.service.interfaces.ICriptoMonedaService;
 import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +46,21 @@ public class CotizacionServiceImp implements ICotizacionService {
             criptoModedaRepository.save(cripto);
         }
         return autoMapper.ToList(cotizaciones, CotizacionBinanceDTO.class);
+    }
+
+    @Override
+    public void actualizarCotizaciones() {
+        List<CotizacionBinance> cotizaciones = cotizacionBinanceRepository.getCotizaciones();
+        for (CotizacionBinance cotizacionBinance : cotizaciones) {
+            CriptoMoneda cripto = criptoModedaRepository.findByNombre(cotizacionBinance.getSymbol());
+            Cotizacion cotizacion = new Cotizacion();
+            cotizacion.setPrice(cotizacionBinance.getPrice());
+            cotizacion.setFechaYHoraDeCotizacion(new Date());
+            cotizacion.setCriptoactivo(cripto);
+            cotizacionRepository.save(cotizacion);
+            cripto.addCotizacion(cotizacion);
+            criptoModedaRepository.save(cripto);
+        }
     }
 
     @Override
