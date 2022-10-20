@@ -35,4 +35,6 @@ public class UsuarioDTO {
     @NotBlank
     @NotNull
     private String direccionBilleteraDeCriptoActivos;
+    private int cantidadOperaciones;
+    private int reputacion;
 }

@@ -1,24 +1,22 @@
-package ar.edu.unq.criptop2p.model.entity;
+package ar.edu.unq.criptop2p.model.dto;
 
-
+import ar.edu.unq.criptop2p.model.entity.Intencion;
+import ar.edu.unq.criptop2p.model.entity.Usuario;
 import ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-@Entity
 @Data
 @NoArgsConstructor
-@Table(name = "Transacciones")
-public class Transaccion {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(unique = true, nullable = false)
+public class TransaccionDTO {
     private long id;
-    @OneToOne
     private Intencion intencion;
-    @OneToOne
     private Usuario usuario;
     private EstadoTransaccion estadoTransaccion;
     private double monto;

@@ -2,8 +2,6 @@ package ar.edu.unq.criptop2p.model.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.core.annotation.Order;
-
 import javax.persistence.*;
 import java.util.Date;
 

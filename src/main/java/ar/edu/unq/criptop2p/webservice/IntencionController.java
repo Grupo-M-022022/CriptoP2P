@@ -24,7 +24,7 @@ public class IntencionController {
 
     @GetMapping("/intenciones")
     public ResponseEntity<List<IntencionDTO>> intenciones(){
-        return  new ResponseEntity<>(intencionService.findAll(),HttpStatus.OK);
+        return  new ResponseEntity<>(intencionService.findAllActive(),HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
