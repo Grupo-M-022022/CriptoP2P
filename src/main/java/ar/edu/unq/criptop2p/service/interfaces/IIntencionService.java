@@ -6,6 +6,6 @@ import java.util.List;
 public interface IIntencionService {
     List<IntencionDTO> findAll();
     List<IntencionDTO> findAllActive();
-    void save(IntencionDTO intencion);
+    IntencionDTO save(IntencionDTO intencion);
     IntencionDTO getById(long id);
 }

@@ -12,6 +12,7 @@ import ar.edu.unq.criptop2p.model.entity.Usuario;
 import ar.edu.unq.criptop2p.persistence.interfaces.IUsuarioRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+
 @Service
 @Transactional
 public class UsuarioServiceImp implements IUsuarioService {
@@ -27,10 +28,10 @@ public class UsuarioServiceImp implements IUsuarioService {
 	}
 
 	@Override
-	public UsuarioDTO save(UsuarioDTO usuarioDTO) {
-		Usuario usuarioEntity = mapperComponent.To(usuarioDTO, Usuario.class);
+	public UsuarioDTO save(UsuarioDTO usuario) {
+		Usuario usuarioEntity = mapperComponent.To(usuario, Usuario.class);
 		usuarioRepository.save(usuarioEntity);
-		return mapperComponent.To(usuarioEntity,UsuarioDTO.class);
+		return mapperComponent.To(usuarioEntity, UsuarioDTO.class);
 	}
 
 	@Override
