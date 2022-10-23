@@ -30,6 +30,7 @@ public class IntencionServiceImp implements IIntencionService {
 
     @Override
     public void save(IntencionDTO intencionDTO) {
+        //TODO validacion margen de variación de +/- 5% con respecto a la última cotización actualizada en el sistema
         Intencion intencionEntity = autoMapper.To(intencionDTO, Intencion.class);
         intencionEntity.setActivo(true);
         intencionRepository.save(intencionEntity);

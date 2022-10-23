@@ -20,6 +20,7 @@ public class TransaccionServiceImp implements ITransaccionService {
     public void transferir(TransaccionDTO transaccionDTO) {
         Transaccion transaccionEntidad = autoMapper.To(transaccionDTO, Transaccion.class);
         transaccionEntidad.setEstadoTransaccion(EstadoTransaccion.TRANSFERIDO);
+        transaccionEntidad.setDireccionEnvio();
         transaccionRepository.save(transaccionEntidad);
     }
 }

@@ -20,12 +20,12 @@ public class Intencion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
     private long id;
-    @OneToOne
+    @ManyToOne
     private CriptoMoneda criptoactivo;
     private long cantidad;
     private double cotizacion;
     private double monto;
-    @OneToOne
+    @ManyToOne
     private Usuario usuarioConIntencion;
     @Enumerated(EnumType.ORDINAL)
     private TipoIntencion operacion;
@@ -33,6 +33,10 @@ public class Intencion {
     private String operacionDescripcion;
     public String getOperacionDescripcion() {
         return operacion.name();
+    }
+
+    public boolean esVenta() {
+        return operacion == TipoIntencion.VENTA;
     }
 }
 
