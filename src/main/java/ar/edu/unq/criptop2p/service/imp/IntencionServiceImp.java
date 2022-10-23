@@ -1,6 +1,7 @@
 package ar.edu.unq.criptop2p.service.imp;
 
 import ar.edu.unq.criptop2p.model.dto.IntencionDTO;
+
 import ar.edu.unq.criptop2p.model.entity.Intencion;
 import ar.edu.unq.criptop2p.persistence.interfaces.IIntencionRepository;
 import ar.edu.unq.criptop2p.service.interfaces.IIntencionService;
@@ -10,11 +11,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+
 public class IntencionServiceImp implements IIntencionService {
     @Autowired
     private AutoMapperComponent autoMapper;
     @Autowired
-    IIntencionRepository intencionRepository;
+    private IIntencionRepository intencionRepository;
 
     @Override
     public List<IntencionDTO> findAll() {
@@ -29,11 +31,12 @@ public class IntencionServiceImp implements IIntencionService {
     }
 
     @Override
-    public void save(IntencionDTO intencionDTO) {
-        //TODO validacion margen de variación de +/- 5% con respecto a la última cotización actualizada en el sistema
+    public IntencionDTO save(IntencionDTO intencionDTO) {
         Intencion intencionEntity = autoMapper.To(intencionDTO, Intencion.class);
+        //TODO validacion margen de variación de +/- 5% con respecto a la última cotización actualizada en el sistema
         intencionEntity.setActivo(true);
         intencionRepository.save(intencionEntity);
+        return autoMapper.To(intencionEntity, IntencionDTO.class);
     }
 
     @Override

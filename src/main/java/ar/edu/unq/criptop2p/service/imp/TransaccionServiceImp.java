@@ -17,6 +17,13 @@ public class TransaccionServiceImp implements ITransaccionService {
     private ITransaccionRepository transaccionRepository;
 
     @Override
+    public TransaccionDTO save(TransaccionDTO transaccionDTO) {
+        Transaccion transactionEntity = autoMapper.To(transaccionDTO, Transaccion.class);
+        transaccionRepository.save(transactionEntity);
+        return autoMapper.To(transactionEntity, TransaccionDTO.class);
+    }
+
+    @Override
     public void transferir(TransaccionDTO transaccionDTO) {
         Transaccion transaccionEntidad = autoMapper.To(transaccionDTO, Transaccion.class);
         transaccionEntidad.setEstadoTransaccion(EstadoTransaccion.TRANSFERIDO);
