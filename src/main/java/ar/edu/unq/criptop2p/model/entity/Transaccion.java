@@ -1,6 +1,7 @@
 package ar.edu.unq.criptop2p.model.entity;
 
 
+import ar.edu.unq.criptop2p.exception.CotizacionDesfazadaException;
 import ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion;
 import ar.edu.unq.criptop2p.utility.enums.TipoIntencion;
 import lombok.Data;
@@ -47,5 +48,23 @@ public class Transaccion {
     private void setDireccionEnvioCompra() {
         String billeteraDestino = intencion.getUsuarioConIntencion().getDireccionBilleteraDeCriptoActivos();
         setDireccionEnvio(billeteraDestino);
+    }
+
+    public void ValidarTransaccion() throws CotizacionDesfazadaException {
+        if(esTipoOperacionVenta()){
+            if(intencion.getCriptoactivo().getUltimaCotizacion() < monto)
+                throw new CotizacionDesfazadaException("La cotización de venta esta por debajo del valor actual");
+        } else {
+            if (intencion.getCriptoactivo().getUltimaCotizacion() > monto)
+                throw new CotizacionDesfazadaException("La cotización de compra esta por encima del valor actual");
+        }
+    }
+
+    public void setEstadoTransaccionCompra() {
+        setEstadoTransaccion(EstadoTransaccion.TRANSFERIDO);
+    }
+
+    public void setEstadoTransaccionVenta() {
+        setEstadoTransaccion(EstadoTransaccion.RECIBIDO);
     }
 }

@@ -21,9 +21,20 @@ public class TransaccionController {
     private ITransaccionService transaccionService;
 
     @PostMapping("/transferir")
-    public ResponseEntity<TransaccionDTO> registrar(@Valid @RequestBody TransaccionDTO transaccionDTO) {
+    public ResponseEntity<TransaccionDTO> transferir(@Valid @RequestBody TransaccionDTO transaccionDTO) {
         transaccionService.transferir(transaccionDTO);
         return new ResponseEntity<>(transaccionDTO, HttpStatus.CREATED);
     }
 
+    @PostMapping("/recibir")
+    public ResponseEntity<TransaccionDTO> recibir(@Valid @RequestBody TransaccionDTO transaccionDTO) {
+        transaccionService.recibir(transaccionDTO);
+        return new ResponseEntity<>(transaccionDTO, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/cancelar")
+    public ResponseEntity<TransaccionDTO> cancelar(@Valid @RequestBody TransaccionDTO transaccionDTO) {
+        transaccionService.cancelar(transaccionDTO);
+        return new ResponseEntity<>(transaccionDTO, HttpStatus.CREATED);
+    }
 }
