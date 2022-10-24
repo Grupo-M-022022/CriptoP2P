@@ -4,10 +4,13 @@ import ar.edu.unq.criptop2p.model.dto.*;
 
 
 import ar.edu.unq.criptop2p.service.interfaces.*;
+import ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import static ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion.TRANSFERIDO;
 
 @Order(1)
 @Component
@@ -65,9 +68,9 @@ public class Bootstrap  implements CommandLineRunner {
 
         //se creo un EstadoDTO para probar Transaccion, no se si hay que hacer un DTO por estado,
         //Lo hice asi para crear datos fakes en Transaccion DTO
-        EstadoDTO estado1 = new EstadoDTO();
+        //EstadoTransaccion estadoTransferido =  TRANSFERIDO;
 
-        TransaccionDTO transaccion1 = new TransaccionDTO (intencion1 , usuario1, estado1 ,
+        TransaccionDTO transaccion1 = new TransaccionDTO (intencion1 , usuario1, TRANSFERIDO ,
                                                          500, 25, 170,
                                                          "25 de Mayo 339");
         transaccion1  = transaccionService.save(transaccion1);
