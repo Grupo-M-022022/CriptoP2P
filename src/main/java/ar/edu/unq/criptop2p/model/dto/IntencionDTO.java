@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class IntencionDTO {
     private long id;
     @NotNull
-    public UsuarioDTO UsuarioConIntencion;
+    public UsuarioDTO usuarioConIntencion;
     @NotNull
     private CriptoMonedaDTO criptoactivo;
     @NotNull
