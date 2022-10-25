@@ -55,6 +55,7 @@ public class TransaccionServiceImp implements ITransaccionService {
             transaccionEntidad.setDireccionEnvio();
             transaccionEntidad.SumarOperacionACompra();
         } catch (CotizacionDesfazadaException ex) {
+            transaccionEntidad.getIntencion().setActivo(false);
             transaccionEntidad.setEstadoTransaccion(EstadoTransaccion.CANCELADO);
             transaccionRepository.save(transaccionEntidad);
         }
@@ -67,6 +68,7 @@ public class TransaccionServiceImp implements ITransaccionService {
         transaccionEntidad.setEstadoTransaccionRecibido();
         transaccionEntidad.setDireccionEnvio();
         transaccionEntidad.SumarOperacionAVenta();
+        transaccionEntidad.getIntencion().setActivo(false);
         transaccionRepository.save(transaccionEntidad);
     }
 
@@ -75,6 +77,7 @@ public class TransaccionServiceImp implements ITransaccionService {
         Transaccion transaccionEntidad = transaccionRepository.getReferenceById(transaccionDTO.getId());
         transaccionEntidad.setEstadoTransaccion(EstadoTransaccion.CANCELADO);
         transaccionEntidad.PenalidadReputaciones();
+        transaccionEntidad.getIntencion().setActivo(false);
         transaccionRepository.save(transaccionEntidad);
     }
 }
