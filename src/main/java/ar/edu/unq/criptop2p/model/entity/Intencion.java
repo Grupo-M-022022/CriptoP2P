@@ -20,7 +20,7 @@ public class Intencion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
     private long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private CriptoMoneda criptoactivo;
     private long cantidad;
     private double cotizacion;

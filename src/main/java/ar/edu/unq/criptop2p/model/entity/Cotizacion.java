@@ -14,7 +14,7 @@ public class Cotizacion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
     private long id;
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private CriptoMoneda criptoactivo;
     private double price;
     private Date fechaYHoraDeCotizacion;
