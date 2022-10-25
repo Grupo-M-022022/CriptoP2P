@@ -5,13 +5,13 @@ import ar.edu.unq.criptop2p.model.dto.TransaccionDTO;
 import ar.edu.unq.criptop2p.model.dto.UsuarioDTO;
 import ar.edu.unq.criptop2p.service.interfaces.IIntencionService;
 import ar.edu.unq.criptop2p.service.interfaces.ITransaccionService;
+import ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import javax.validation.constraints.AssertTrue;
 
 @SpringBootTest
 public class TransaccionTest {
@@ -21,29 +21,43 @@ public class TransaccionTest {
     @Autowired
     private ITransaccionService transaccionService;
 
+    private TransaccionDTO transaccionDTO;
+    private IntencionDTO intencionDTO;
+    private UsuarioDTO usuarioDTO;
     @BeforeEach
-    void setUpUsuario() {
+    void setTransaccion() {
+        transaccionDTO = new TransaccionDTO();
 
-    }
-
-    @Test
-    void transferirTransaccionDeVenta() {
-        TransaccionDTO transaccionDTO = new TransaccionDTO();
-
-        IntencionDTO intencionDTO = new IntencionDTO();
+        intencionDTO = new IntencionDTO();
         intencionDTO.setId(18);
 
         transaccionDTO.setIntencion(intencionDTO);
 
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        usuarioDTO = new UsuarioDTO();
         usuarioDTO.setId(15);
 
         transaccionDTO.setUsuario(usuarioDTO);
 
         transaccionDTO.setMonto(20);
+    }
 
+    @Test
+    void transferirTransaccionDeVenta() {
         transaccionDTO = transaccionService.transferir(transaccionDTO);
+        assertEquals(transaccionDTO.getEstadoTransaccion(), EstadoTransaccion.TRANSFERIDO);
+        assertEquals(transaccionDTO.getDireccionEnvio(), "10101109" );
+    }
 
-        //AssertTrue(transaccionDTO)
+    @Test
+    void transferirTransaccionDeCompra() {
+
+        intencionDTO = new IntencionDTO();
+        intencionDTO.setId(19);
+
+        transaccionDTO.setIntencion(intencionDTO);
+        transaccionDTO.setMonto(0.180);
+        transaccionDTO = transaccionService.transferir(transaccionDTO);
+        assertEquals(transaccionDTO.getEstadoTransaccion(), EstadoTransaccion.TRANSFERIDO);
+        assertEquals(transaccionDTO.getDireccionEnvio(), "1234567891234567894321");
     }
 }

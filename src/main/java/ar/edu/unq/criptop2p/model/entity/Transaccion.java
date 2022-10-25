@@ -2,7 +2,6 @@ package ar.edu.unq.criptop2p.model.entity;
 
 
 import ar.edu.unq.criptop2p.exception.CotizacionDesfazadaException;
-import ar.edu.unq.criptop2p.exception.EstadoInvalidoTransaccionException;
 import ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +19,7 @@ public class Transaccion {
     private long id;
     @ManyToOne
     private Intencion intencion;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Usuario usuario;
     private EstadoTransaccion estadoTransaccion;
     private double monto;

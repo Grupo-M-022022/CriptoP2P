@@ -9,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import static ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion.TRANSFERIDO;
+
 @Order(1)
 @Component
 public class Bootstrap  implements CommandLineRunner {
@@ -20,6 +22,8 @@ public class Bootstrap  implements CommandLineRunner {
     private IIntencionService intencionService;
     @Autowired
     private ITransaccionService transaccionService;
+    @Autowired
+    private ICotizacionService cotizacionService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -55,7 +59,7 @@ public class Bootstrap  implements CommandLineRunner {
         cripto1 = criptoMonedaService.save(cripto1);
         cripto2 = criptoMonedaService.save(cripto2);
 
-        IntencionDTO intencion1 = new IntencionDTO(usuario1, cripto1, "COMPRA", 10, 20, 30);
+        IntencionDTO intencion1 = new IntencionDTO(usuario1, cripto1, "COMPRA", 10, 0.180, 0.180);
         IntencionDTO intencion2 = new IntencionDTO(usuario2, cripto2, "VENTA", 50, 100, 80);
         IntencionDTO intencion3 = new IntencionDTO(usuario3, cripto1, "VENTA", 300, 500, 100);
 
@@ -65,11 +69,13 @@ public class Bootstrap  implements CommandLineRunner {
 
         //se creo un EstadoDTO para probar Transaccion, no se si hay que hacer un DTO por estado,
         //Lo hice asi para crear datos fakes en Transaccion DTO
-        EstadoDTO estado1 = new EstadoDTO();
+        //EstadoTransaccion estadoTransferido =  TRANSFERIDO;
 
-        TransaccionDTO transaccion1 = new TransaccionDTO (intencion1 , usuario1, estado1 ,
+        TransaccionDTO transaccion1 = new TransaccionDTO (intencion1 , usuario1, TRANSFERIDO ,
                                                          500, 25, 170,
                                                          "25 de Mayo 339");
-        transaccion1  = transaccionService.save(transaccion1);
+        //transaccion1  = transaccionService.save(transaccion1);
+
+        cotizacionService.actualizarCotizaciones();
     }
 }

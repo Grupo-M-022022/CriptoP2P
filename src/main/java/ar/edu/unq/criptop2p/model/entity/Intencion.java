@@ -32,7 +32,11 @@ public class Intencion {
     private boolean activo;
     private String tipoOperacionDescripcion;
     public String getTipoOperacionDescripcion() {
-        return operacion.name();
+        return switch (getOperacion()) {
+            case VENTA -> "Venta";
+            case COMPRA -> "Compra";
+            default -> "No identificado";
+        };
     }
 
     public boolean esVenta() {

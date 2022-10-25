@@ -1,16 +1,19 @@
 package ar.edu.unq.criptop2p.model.dto;
 
 
+import ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
 public class TransaccionDTO {
-    public TransaccionDTO (IntencionDTO intencion, UsuarioDTO usuario, EstadoDTO estado ,
+    public TransaccionDTO (IntencionDTO intencion, UsuarioDTO usuario, EstadoTransaccion estado ,
                            double monto, int cantidadDeOperaciones,
                            int reputacion, String direccionEnvio) {
 
@@ -31,13 +34,14 @@ public class TransaccionDTO {
     @NotBlank
     private UsuarioDTO usuario;
     @NotNull
-    @NotBlank
-    private EstadoDTO estadoTransaccion;  //para probar si persiste, seteo recibido
+    private EstadoTransaccion estadoTransaccion;
     private double monto;
     private int cantidadOperaciones;
     private int reputacion;
     private String direccionEnvio;
 
 
-
+    public Long getIdUsuario() {
+        return getUsuario().getId();
+    }
 }
