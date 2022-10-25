@@ -1,5 +1,6 @@
 package ar.edu.unq.criptop2p.Service;
 
+import ar.edu.unq.criptop2p.CriptoP2PApplicationTests;
 import ar.edu.unq.criptop2p.model.dto.IntencionDTO;
 import ar.edu.unq.criptop2p.model.dto.TransaccionDTO;
 import ar.edu.unq.criptop2p.model.dto.UsuarioDTO;
@@ -9,11 +10,9 @@ import ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
-public class TransaccionTest {
+public class TransaccionTest extends CriptoP2PApplicationTests {
 
     @Autowired
     private IIntencionService intencionService;

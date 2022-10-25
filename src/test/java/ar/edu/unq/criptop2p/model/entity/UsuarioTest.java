@@ -1,15 +1,11 @@
 package ar.edu.unq.criptop2p.model.entity;
 
-
+import ar.edu.unq.criptop2p.CriptoP2PApplicationTests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
-class UsuarioTest {
+class UsuarioTest extends CriptoP2PApplicationTests {
 
     Usuario usuario = new Usuario();
 
