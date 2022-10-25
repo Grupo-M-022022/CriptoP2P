@@ -14,8 +14,12 @@ public class Cotizacion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
     private long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     private CriptoMoneda criptoactivo;
     private double price;
     private Date fechaYHoraDeCotizacion;
+    @Override
+    public String toString(){
+        return "Cotizacion";
+    }
 }

@@ -5,6 +5,7 @@ import ar.edu.unq.criptop2p.exception.CotizacionDesfazadaException;
 import ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -17,15 +18,20 @@ public class Transaccion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(unique = true, nullable = false)
     private long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Intencion intencion;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
     private EstadoTransaccion estadoTransaccion;
     private double monto;
     private int cantidadOperaciones;
     private int reputacion;
     private String direccionEnvio;
+
+    @Override
+    public String toString(){
+        return "Transaccion";
+    }
 
     public void setDireccionEnvio() {
         if (esTipoOperacionVenta()){

@@ -1,14 +1,11 @@
 package ar.edu.unq.criptop2p;
 
 import ar.edu.unq.criptop2p.model.dto.*;
-
-
 import ar.edu.unq.criptop2p.service.interfaces.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
 import static ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion.TRANSFERIDO;
 
 @Order(1)
@@ -40,6 +37,8 @@ public class Bootstrap  implements CommandLineRunner {
         criptoMonedaService.save(new CriptoMonedaDTO("BTCUSDT"));
         criptoMonedaService.save(new CriptoMonedaDTO("BNBUSDT"));
         criptoMonedaService.save(new CriptoMonedaDTO("ADAUSDT"));
+        var cripto1 = criptoMonedaService.save(new CriptoMonedaDTO("TRXUSDT"));
+        var cripto2 = criptoMonedaService.save(new CriptoMonedaDTO("AUDIOUSDT"));
 
 
         //setUp
@@ -54,8 +53,6 @@ public class Bootstrap  implements CommandLineRunner {
         usuario2 = usuarioService.save(usuario2);
         usuario3 = usuarioService.save(usuario3);
 
-        CriptoMonedaDTO cripto1 = criptoMonedaService.save(new CriptoMonedaDTO("TRXUSDT"));
-        CriptoMonedaDTO cripto2 = criptoMonedaService.save(new CriptoMonedaDTO("AUDIOUSDT"));
         cripto1 = criptoMonedaService.save(cripto1);
         cripto2 = criptoMonedaService.save(cripto2);
 

@@ -2,6 +2,8 @@ package ar.edu.unq.criptop2p.model.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 
 @Entity
@@ -22,6 +24,11 @@ public class Usuario {
 	private String direccionBilleteraDeCriptoActivos;
 	private int cantidadOperaciones;
 	private int reputacion;
+
+	@Override
+	public String toString(){
+		return "Usuario";
+	}
 
     public void PenalidadReputacion() {
 		setCantidadOperaciones(getCantidadOperaciones() - 20);

@@ -3,10 +3,12 @@ package ar.edu.unq.criptop2p.model.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SpringBootTest
 class UsuarioTest {
 
     Usuario usuario = new Usuario();

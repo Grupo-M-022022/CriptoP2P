@@ -12,11 +12,14 @@ import ar.edu.unq.criptop2p.service.interfaces.ICotizacionService;
 import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Service
+@Transactional
 public class CotizacionServiceImp implements ICotizacionService {
     @Autowired
     private AutoMapperComponent autoMapper;
@@ -69,7 +72,6 @@ public class CotizacionServiceImp implements ICotizacionService {
             cotizacion.setPrice(cotizacionBinance.getPrice());
             cotizacion.setFechaYHoraDeCotizacion(new Date());
             cotizacion.setCriptoactivo(cripto);
-            cotizacionRepository.save(cotizacion);
             cripto.addCotizacion(cotizacion);
             criptoModedaRepository.save(cripto);
         }

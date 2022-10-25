@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 @SpringBootTest
 public class TransaccionTest {
 
@@ -23,7 +22,7 @@ public class TransaccionTest {
 
     private TransaccionDTO transaccionDTO;
     private IntencionDTO intencionDTO;
-    private UsuarioDTO usuarioDTO;
+
     @BeforeEach
     void setTransaccion() {
         transaccionDTO = new TransaccionDTO();
@@ -33,7 +32,7 @@ public class TransaccionTest {
 
         transaccionDTO.setIntencion(intencionDTO);
 
-        usuarioDTO = new UsuarioDTO();
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
         usuarioDTO.setId(15);
 
         transaccionDTO.setUsuario(usuarioDTO);
@@ -45,7 +44,7 @@ public class TransaccionTest {
     void transferirTransaccionDeVenta() {
         transaccionDTO = transaccionService.transferir(transaccionDTO);
         assertEquals(transaccionDTO.getEstadoTransaccion(), EstadoTransaccion.TRANSFERIDO);
-        assertEquals(transaccionDTO.getDireccionEnvio(), "10101109" );
+        assertEquals("12345678", transaccionDTO.getDireccionEnvio());
     }
 
     @Test
@@ -59,5 +58,17 @@ public class TransaccionTest {
         transaccionDTO = transaccionService.transferir(transaccionDTO);
         assertEquals(transaccionDTO.getEstadoTransaccion(), EstadoTransaccion.TRANSFERIDO);
         assertEquals(transaccionDTO.getDireccionEnvio(), "1234567891234567894321");
+    }
+
+    @Test
+    void transferirTransaccionDeCompraCancelada() {
+
+        intencionDTO = new IntencionDTO();
+        intencionDTO.setId(19);
+
+        transaccionDTO.setIntencion(intencionDTO);
+        transaccionDTO.setMonto(500);
+        transaccionDTO = transaccionService.transferir(transaccionDTO);
+        assertEquals(EstadoTransaccion.CANCELADO, transaccionDTO.getEstadoTransaccion());
     }
 }

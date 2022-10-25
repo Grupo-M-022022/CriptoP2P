@@ -13,7 +13,7 @@ public class ScheduledTasks {
     @Autowired
     private ICotizacionService cotizacionService;
 
-    @Scheduled(fixedRate = 100000, initialDelay = 5000)
+    @Scheduled(fixedRate = 100000, initialDelay = 100000)
     public void ActualizarCotizaciones() {
         log.info("ActualizarCotizaciones");
         cotizacionService.actualizarCotizaciones();
