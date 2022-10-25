@@ -24,7 +24,7 @@ public class IntencionDTO {
 
     public IntencionDTO (UsuarioDTO usuarioDTO,CriptoMonedaDTO criptoactivoDto, String operacionDescripcion,
                          long cantidad, double cotizacion, double monto){
-        setUsuarioConIntencion( usuarioDTO);
+        setUsuarioConIntencion(usuarioDTO);
         setCriptoactivo(criptoactivoDto);
         setOperacionDescripcion(operacionDescripcion);
         setCantidad(cantidad);

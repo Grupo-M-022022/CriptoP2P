@@ -3,8 +3,6 @@ package ar.edu.unq.criptop2p.model.entity;
 import ar.edu.unq.criptop2p.utility.enums.TipoIntencion;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,7 +25,7 @@ public class Intencion {
     private long cantidad;
     private double cotizacion;
     private double monto;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Usuario usuarioConIntencion;
     @Enumerated(EnumType.ORDINAL)
     private TipoIntencion operacion;
