@@ -22,6 +22,14 @@ public class Usuario {
 	private String direccionBilleteraDeCriptoActivos;
 	private int cantidadOperaciones;
 	private int reputacion;
+
+    public void PenalidadReputacion() {
+		setCantidadOperaciones(getCantidadOperaciones() - 20);
+    }
+
+	public void SumarOperacion() {
+		setCantidadOperaciones(getCantidadOperaciones()+1);
+	}
 }
 
 

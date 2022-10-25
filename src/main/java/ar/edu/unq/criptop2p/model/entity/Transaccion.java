@@ -2,8 +2,8 @@ package ar.edu.unq.criptop2p.model.entity;
 
 
 import ar.edu.unq.criptop2p.exception.CotizacionDesfazadaException;
+import ar.edu.unq.criptop2p.exception.EstadoInvalidoTransaccionException;
 import ar.edu.unq.criptop2p.utility.enums.EstadoTransaccion;
-import ar.edu.unq.criptop2p.utility.enums.TipoIntencion;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -46,7 +46,7 @@ public class Transaccion {
     }
 
     private void setDireccionEnvioCompra() {
-        String billeteraDestino = intencion.getUsuarioConIntencion().getDireccionBilleteraDeCriptoActivos();
+        String billeteraDestino = getUsuario().getDireccionBilleteraDeCriptoActivos();
         setDireccionEnvio(billeteraDestino);
     }
 
@@ -60,11 +60,28 @@ public class Transaccion {
         }
     }
 
-    public void setEstadoTransaccionCompra() {
+    public void setEstadoTransaccionTransferido() {
         setEstadoTransaccion(EstadoTransaccion.TRANSFERIDO);
     }
 
-    public void setEstadoTransaccionVenta() {
+    public void setEstadoTransaccionRecibido() {
         setEstadoTransaccion(EstadoTransaccion.RECIBIDO);
+    }
+
+    public void PenalidadReputaciones() {
+        getUsuario().PenalidadReputacion();
+        getIntencion().getUsuarioConIntencion().PenalidadReputacion();
+    }
+
+    public void SumarOperacionACompra() {
+        getUsuario().SumarOperacion();
+    }
+
+    public void SumarOperacionAVenta() {
+        getIntencion().SumarOperacion();
+    }
+
+    public Long getIdUsuario() {
+        return getUsuario().getId();
     }
 }

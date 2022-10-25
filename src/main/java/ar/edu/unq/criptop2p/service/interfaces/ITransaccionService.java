@@ -6,7 +6,7 @@ import ar.edu.unq.criptop2p.model.entity.Transaccion;
 
 public interface ITransaccionService {
     TransaccionDTO save(TransaccionDTO transaccion);
-    void transferir(TransaccionDTO transaccionDTO);
+    TransaccionDTO transferir(TransaccionDTO transaccionDTO);
     void recibir(TransaccionDTO transaccionDTO);
     void cancelar(TransaccionDTO transaccionDTO);
 }

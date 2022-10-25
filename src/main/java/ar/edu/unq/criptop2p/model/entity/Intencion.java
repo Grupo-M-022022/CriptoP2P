@@ -30,13 +30,17 @@ public class Intencion {
     @Enumerated(EnumType.ORDINAL)
     private TipoIntencion operacion;
     private boolean activo;
-    private String operacionDescripcion;
-    public String getOperacionDescripcion() {
+    private String tipoOperacionDescripcion;
+    public String getTipoOperacionDescripcion() {
         return operacion.name();
     }
 
     public boolean esVenta() {
         return operacion == TipoIntencion.VENTA;
+    }
+
+    public void SumarOperacion() {
+        getUsuarioConIntencion().SumarOperacion();
     }
 }
 

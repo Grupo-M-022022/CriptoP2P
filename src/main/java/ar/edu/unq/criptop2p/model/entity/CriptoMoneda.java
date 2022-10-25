@@ -21,7 +21,9 @@ public class CriptoMoneda {
 	private double ultimaCotizacion;
 
 	public double getUltimaCotizacion() {
-		return cotizaciones.get(0).getPrice();
+		if (cotizaciones != null)
+			return cotizaciones.get(0).getPrice();
+		return 0;
 	}
 	public void addCotizacion(Cotizacion cotizacion) {
 		this.getCotizaciones().add(cotizacion);
