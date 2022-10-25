@@ -1,33 +1,25 @@
 package ar.edu.unq.criptop2p.model.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Data
+@NoArgsConstructor
+@Table(name = "Cotizaciones")
 public class Cotizacion {
-    private Criptomoneda criptoactivo;
-    private Date fechaHora;
-    private double cotizacion;
-
-    public Criptomoneda getCriptoactivo() {
-        return criptoactivo;
-    }
-
-    public void setCriptoactivo(Criptomoneda criptoactivo) {
-        this.criptoactivo = criptoactivo;
-    }
-
-    public Date getFechaHora() {
-        return fechaHora;
-    }
-
-    public void setFechaHora(Date fechaHora) {
-        this.fechaHora = fechaHora;
-    }
-
-    public double getValorCotizacion() {
-        return cotizacion;
-    }
-
-    public void setCotizacion(double cotizacion) {
-        this.cotizacion = cotizacion;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(unique = true, nullable = false)
+    private long id;
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private CriptoMoneda criptoactivo;
+    private double price;
+    private Date fechaYHoraDeCotizacion;
+    @Override
+    public String toString(){
+        return "Cotizacion";
     }
 }

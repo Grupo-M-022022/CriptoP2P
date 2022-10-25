@@ -1,75 +1,58 @@
 package ar.edu.unq.criptop2p.model.entity;
 
 import ar.edu.unq.criptop2p.utility.enums.TipoIntencion;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Data
+@NoArgsConstructor
+@Table(name = "Intenciones")
 public class Intencion {
-    private Criptomoneda criptoactivo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(unique = true, nullable = false)
+    private long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CriptoMoneda criptoactivo;
     private long cantidad;
     private double cotizacion;
     private double monto;
-    private Usuario Usuario;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Usuario usuarioConIntencion;
+    @Enumerated(EnumType.ORDINAL)
     private TipoIntencion operacion;
     private boolean activo;
+    private String tipoOperacionDescripcion;
 
-    public Criptomoneda getCriptoactivo() {
-        return criptoactivo;
+    @Override
+    public String toString(){
+        return "Intencion";
     }
 
-    public void setCriptoactivo(Criptomoneda criptoactivo) {
-        this.criptoactivo = criptoactivo;
+    public String getTipoOperacionDescripcion() {
+        return switch (getOperacion()) {
+            case VENTA -> "Venta";
+            case COMPRA -> "Compra";
+            default -> "No identificado";
+        };
     }
 
-    public long getCantidad() {
-        return cantidad;
+    public boolean esVenta() {
+        return operacion == TipoIntencion.VENTA;
     }
 
-    public void setCantidad(long cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public double getCotizacion() {
-        return this.cotizacion;
-    }
-
-    public void setCotizacion(double cotizacion) {
-        this.cotizacion = cotizacion;
-    }
-
-    public double getMonto() { return monto; }
-
-    public void setMonto(double monto) {
-        this.monto = monto;
-    }
-
-    public Usuario getUsuario() {
-        return Usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        Usuario = usuario;
-    }
-
-    public TipoIntencion getOperacion() {
-        return this.operacion;
-    }
-
-    public int getCantidadOperaciones() {
-        return getUsuario().getCantidadOperaciones();
-    }
-
-    public int getReputacion() {
-        return getUsuario().getReputacion();
-    }
-
-    public boolean sActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
-    public void setOperacion(TipoIntencion operacion) {
-        this.operacion = operacion;
+    public void SumarOperacion() {
+        getUsuarioConIntencion().SumarOperacion();
     }
 }
+

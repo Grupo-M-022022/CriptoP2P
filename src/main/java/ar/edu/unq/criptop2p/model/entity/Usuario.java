@@ -1,13 +1,14 @@
 package ar.edu.unq.criptop2p.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.*;
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name = "Usuarios")
 public class Usuario {
 	@Id
@@ -23,65 +24,18 @@ public class Usuario {
 	private String direccionBilleteraDeCriptoActivos;
 	private int cantidadOperaciones;
 	private int reputacion;
-	public Usuario() {
-		// Este constructor es necesario para JPA
+
+	@Override
+	public String toString(){
+		return "Usuario";
 	}
 
-	public long getId() {
-		return this.id;
-	}
+    public void PenalidadReputacion() {
+		setCantidadOperaciones(getCantidadOperaciones() - 20);
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getDireccion() {
-		return direccion;
-	}
-	
-	public void setDireccion(String dir) {
-		this.direccion = dir;
-	}
-	public String getCVUMercadoPago() {
-		return cvuMercadoPago;
-	}
-	
-	public void setCVUMercadoPago(String cvu) {
-		this.cvuMercadoPago = cvu ;
-	}
-	
-	public String getDireccionBilleteraDeCriptoActivos() {
-		return direccionBilleteraDeCriptoActivos;
-	}
-	
-	public void setDireccionBilleteraDeCriptoActivos(String dbc) {
-		this.direccionBilleteraDeCriptoActivos = dbc;
-	}
-
-    public int getCantidadOperaciones() { return this.cantidadOperaciones; }
-	public void setCantidadOperaciones(int cantidadOperaciones) { this.cantidadOperaciones = cantidadOperaciones; }
-
-	public int getReputacion() {
-		return reputacion;
-	}
-
-	public void setReputacion(int reputacion) {
-		this.reputacion = reputacion;
+	public void SumarOperacion() {
+		setCantidadOperaciones(getCantidadOperaciones()+1);
 	}
 }
 
