@@ -17,7 +17,7 @@ public class CriptoMoneda {
 	@Column(unique = true, nullable = false)
 	private long id;
 	private String nombre;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@OrderBy("fechaYHoraDeCotizacion DESC")
 	private List<Cotizacion> cotizaciones;
 	private double ultimaCotizacion;

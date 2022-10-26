@@ -10,11 +10,10 @@ import javax.validation.constraints.NotNull;
 public class IntencionDTO {
     private long id;
     @NotNull
-    public UsuarioDTO UsuarioConIntencion;
+    public UsuarioDTO usuarioConIntencion;
     @NotNull
     private CriptoMonedaDTO criptoactivo;
-    @NotNull
-    private String operacionDescripcion;
+    private String tipoOperacionDescripcion;
     @NotNull
     private long cantidad;
     @NotNull
@@ -24,9 +23,9 @@ public class IntencionDTO {
 
     public IntencionDTO (UsuarioDTO usuarioDTO,CriptoMonedaDTO criptoactivoDto, String operacionDescripcion,
                          long cantidad, double cotizacion, double monto){
-        setUsuarioConIntencion( usuarioDTO);
+        setUsuarioConIntencion(usuarioDTO);
         setCriptoactivo(criptoactivoDto);
-        setOperacionDescripcion(operacionDescripcion);
+        setTipoOperacionDescripcion(operacionDescripcion);
         setCantidad(cantidad);
         setCotizacion(cotizacion);
         setMonto(monto);
