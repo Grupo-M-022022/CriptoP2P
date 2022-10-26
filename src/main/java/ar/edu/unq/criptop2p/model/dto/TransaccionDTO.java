@@ -28,13 +28,11 @@ public class TransaccionDTO {
     }
     private long id;
     @NotNull
-    @NotBlank
     private IntencionDTO intencion;
     @NotNull
-    @NotBlank
     private UsuarioDTO usuario;
-    @NotNull
     private EstadoTransaccion estadoTransaccion;
+    @NotNull
     private double monto;
     private int cantidadOperaciones;
     private int reputacion;

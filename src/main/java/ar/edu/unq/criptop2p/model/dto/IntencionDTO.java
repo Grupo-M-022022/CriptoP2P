@@ -13,8 +13,7 @@ public class IntencionDTO {
     public UsuarioDTO usuarioConIntencion;
     @NotNull
     private CriptoMonedaDTO criptoactivo;
-    @NotNull
-    private String operacionDescripcion;
+    private String tipoOperacionDescripcion;
     @NotNull
     private long cantidad;
     @NotNull
@@ -26,7 +25,7 @@ public class IntencionDTO {
                          long cantidad, double cotizacion, double monto){
         setUsuarioConIntencion(usuarioDTO);
         setCriptoactivo(criptoactivoDto);
-        setOperacionDescripcion(operacionDescripcion);
+        setTipoOperacionDescripcion(operacionDescripcion);
         setCantidad(cantidad);
         setCotizacion(cotizacion);
         setMonto(monto);

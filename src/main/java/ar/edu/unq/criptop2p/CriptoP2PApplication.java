@@ -1,5 +1,6 @@
 package ar.edu.unq.criptop2p;
 
+import org.hibernate.collection.spi.PersistentCollection;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration;
 import org.modelmapper.convention.NamingConventions;
@@ -15,7 +16,9 @@ public class CriptoP2PApplication {
 	@Bean
 	public ModelMapper modelMapper(){
 		ModelMapper modelMapper = new ModelMapper();
+
 		modelMapper.getConfiguration()
+				.setPropertyCondition(context -> !(context.getSource() instanceof PersistentCollection))
 				.setFieldMatchingEnabled(true)
 				.setFieldAccessLevel(Configuration.AccessLevel.PRIVATE)
 				.setSourceNamingConvention(NamingConventions.JAVABEANS_MUTATOR);

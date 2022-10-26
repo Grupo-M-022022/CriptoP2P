@@ -18,7 +18,7 @@ public class IntencionController {
 
     @PostMapping("/operar")
     public ResponseEntity <IntencionDTO> operar(@Valid @RequestBody IntencionDTO intencionDTO){
-        intencionService.save(intencionDTO);
+        intencionDTO = intencionService.save(intencionDTO);
         return  new ResponseEntity<>(intencionDTO, HttpStatus.CREATED);
     }
 

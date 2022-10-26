@@ -46,7 +46,7 @@ public class TransaccionServiceImp implements ITransaccionService {
     @Override
     public TransaccionDTO transferir(TransaccionDTO transaccionDTO) {
         Transaccion transaccionEntidad = autoMapper.To(transaccionDTO, Transaccion.class);
-        Optional<Usuario> usuario = usuarioRepository.findById(transaccionEntidad.getIdUsuario());
+        Optional<Usuario> usuario = usuarioRepository.findAll().stream().findFirst();
         transaccionEntidad.setUsuario(usuario.get());
         Optional<Intencion> intencion = intencionRepository.findById(transaccionDTO.getIntencion().getId());
         transaccionEntidad.setIntencion(intencion.get());
