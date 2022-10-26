@@ -11,6 +11,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import java.util.Objects;
 
 public class UsuarioMockControllerTest extends CriptoP2PApplicationTests {
 
@@ -35,7 +36,7 @@ public class UsuarioMockControllerTest extends CriptoP2PApplicationTests {
                     .thenReturn(usuarioResponse);
 
             Assertions.assertEquals(HttpStatus.OK, usuarioResponse.getStatusCode());
-            Assertions.assertEquals(usuarioResponse.getBody().getEmail(), usuario.getEmail());
+            Assertions.assertEquals(Objects.requireNonNull(usuarioResponse.getBody()).getEmail(), usuario.getEmail());
             Assertions.assertEquals(usuarioResponse.getBody().getPassword(), usuario.getPassword());
             Assertions.assertEquals(usuarioResponse.getBody().getDireccion(), usuario.getDireccion());
             Assertions.assertEquals(usuarioResponse.getBody().getCvuMercadoPago(), usuario.getCvuMercadoPago());
