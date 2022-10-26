@@ -1,12 +1,11 @@
-package ar.edu.unq.criptop2p;
+package ar.edu.unq.criptop2p.Service;
 
+import ar.edu.unq.criptop2p.CriptoP2PApplicationTests;
 import ar.edu.unq.criptop2p.model.dto.UsuarioDTO;
-
 import ar.edu.unq.criptop2p.service.interfaces.IUsuarioService;
 import ar.edu.unq.criptop2p.webservice.UsuarioController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
@@ -14,7 +13,7 @@ import java.util.Objects;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class UsuarioControllerTest extends CriptoP2PApplicationTests {
+public class UsuarioControllerEndToEndTest extends CriptoP2PApplicationTests {
     private static final String HTTP_LOCALHOST = "http://localhost:";
 
     @Autowired

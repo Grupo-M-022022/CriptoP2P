@@ -22,7 +22,9 @@ public class IntencionController {
     private IIntencionService intencionService;
     @Operation(summary     = "Registrar una intencion",
                description = "Registra una nueva intencion en el sistema")
+
     @PostMapping("/operar")
+
     public ResponseEntity <IntencionDTO> operar(@Valid @RequestBody IntencionDTO intencionDTO){
         intencionDTO = intencionService.save(intencionDTO);
         return  new ResponseEntity<>(intencionDTO, HttpStatus.CREATED);
@@ -30,12 +32,14 @@ public class IntencionController {
     @Operation(summary     = "Ver las intenciones",
             description = "Visualizar todas las intenciones del sistema")
     @GetMapping("/intenciones")
+
     public ResponseEntity<List<IntencionDTO>> intenciones(){
         return  new ResponseEntity<>(intencionService.findAllActive(),HttpStatus.OK);
     }
     @Operation(summary = "Buscar una intencion",
             description = "Permite buscar a una determinada intencion por su ID")
     @GetMapping("/{id}")
+
     public ResponseEntity<IntencionDTO> getIntencion(@Parameter(description = "ID de la intencion requerida")@PathVariable long id){
         return  ResponseEntity.ok(intencionService.getById(id));
     }

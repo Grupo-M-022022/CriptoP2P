@@ -5,8 +5,9 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 
-@NoArgsConstructor
+
 @Data
+@NoArgsConstructor
 public class IntencionDTO {
     private long id;
     @NotNull
