@@ -71,7 +71,7 @@ public class IntencionControllerEndToEndTest  extends CriptoP2PApplicationTests 
     @Test
     public void verQueNoExisteUnaIntencionConID1() throws Exception {
         assertThat(this.restTemplate.getForObject(HTTP_LOCALHOST + port + "/intencion/id",
-                String.class)).doesNotContain("1");
+                IntencionDTO.class).getId()).isNotEqualTo(1);
     }
 
 }
