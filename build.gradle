@@ -4,6 +4,7 @@ plugins {
 	id 'java'
 	id 'eclipse'
 	id "org.sonarqube" version "3.4.0.2513"
+	id "jacoco"
 }
 
 sonarqube {
@@ -11,6 +12,12 @@ sonarqube {
 		property "sonar.projectKey", "Grupo-M-022022_CriptoP2P"
 		property "sonar.organization", "grupo-m-022022"
 		property "sonar.host.url", "https://sonarcloud.io"
+	}
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
 	}
 }
 
