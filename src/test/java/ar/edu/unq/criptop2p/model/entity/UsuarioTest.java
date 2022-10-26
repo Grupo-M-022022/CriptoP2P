@@ -28,10 +28,6 @@ class UsuarioTest extends CriptoP2PApplicationTests {
         assertEquals("12345678", usuario.getDireccionBilleteraDeCriptoActivos());
         assertEquals(0, usuario.getCantidadOperaciones());
         assertEquals(0, usuario.getReputacion());
-
-
-
-
     }
 
 }
