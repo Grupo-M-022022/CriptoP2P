@@ -33,6 +33,6 @@ public class CriptoMonedaServiceImp implements ICriptoMonedaService {
 	@Override
 	public CriptoMonedaDTO getById(long id) {
 		Optional<CriptoMoneda> criptoMoneda = criptoModedaRepository.findById(id);
-		return mapperComponent.To(criptoMoneda.get(), CriptoMonedaDTO.class);
+		return mapperComponent.To(criptoMoneda.orElse(null), CriptoMonedaDTO.class);
 	}
 }

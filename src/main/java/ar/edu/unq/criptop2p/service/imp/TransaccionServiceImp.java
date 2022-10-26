@@ -1,7 +1,6 @@
 package ar.edu.unq.criptop2p.service.imp;
 
 import ar.edu.unq.criptop2p.exception.CotizacionDesfazadaException;
-import ar.edu.unq.criptop2p.model.dto.IntencionDTO;
 import ar.edu.unq.criptop2p.model.dto.TransaccionDTO;
 import ar.edu.unq.criptop2p.model.entity.Intencion;
 import ar.edu.unq.criptop2p.model.entity.Transaccion;
@@ -35,7 +34,7 @@ public class TransaccionServiceImp implements ITransaccionService {
     public TransaccionDTO save(TransaccionDTO transaccionDTO) {
         Transaccion transaccionEntidad = autoMapper.To(transaccionDTO, Transaccion.class);
         Optional<Usuario> usuario = usuarioRepository.findById(transaccionEntidad.getIdUsuario());
-        transaccionEntidad.setUsuario(usuario.get());
+        transaccionEntidad.setUsuario(usuario.orElse(null));
         transaccionRepository.save(transaccionEntidad);
         //transaccionRepository.getReferenceById(transaccionEntidad.getId());
         transaccionEntidad.setEstadoTransaccion(EstadoTransaccion.INDEFINIDO);
@@ -47,9 +46,9 @@ public class TransaccionServiceImp implements ITransaccionService {
     public TransaccionDTO transferir(TransaccionDTO transaccionDTO) {
         Transaccion transaccionEntidad = autoMapper.To(transaccionDTO, Transaccion.class);
         Optional<Usuario> usuario = usuarioRepository.findAll().stream().findFirst();
-        transaccionEntidad.setUsuario(usuario.get());
+        transaccionEntidad.setUsuario(usuario.orElse(null));
         Optional<Intencion> intencion = intencionRepository.findById(transaccionDTO.getIntencion().getId());
-        transaccionEntidad.setIntencion(intencion.get());
+        transaccionEntidad.setIntencion(intencion.orElse(null));
         transaccionRepository.save(transaccionEntidad);
         try {
             transaccionEntidad.ValidarTransaccion();
@@ -68,7 +67,8 @@ public class TransaccionServiceImp implements ITransaccionService {
     @Transactional
     public TransaccionDTO recibir(TransaccionDTO transaccionDTO) {
         Optional<Transaccion> transaccionEntidadOption = transaccionRepository.findById(transaccionDTO.getId());
-        Transaccion transaccionEntidad = transaccionEntidadOption.get();
+        Transaccion transaccionEntidad = transaccionEntidadOption.orElse(null);
+        assert transaccionEntidad != null;
         transaccionEntidad.setEstadoTransaccionRecibido();
         transaccionEntidad.setDireccionEnvio();
         transaccionEntidad.SumarOperacionAVenta();
