@@ -37,6 +37,6 @@ public class UsuarioServiceImp implements IUsuarioService {
 	@Override
 	public UsuarioDTO getById(long id) {
 		Optional<Usuario> usuario = usuarioRepository.findById(id);
-		return mapperComponent.To(usuario.get(), UsuarioDTO.class);
+		return mapperComponent.To(usuario.orElse(null), UsuarioDTO.class);
 	}
 }
