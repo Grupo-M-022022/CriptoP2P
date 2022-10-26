@@ -64,9 +64,7 @@ public class Bootstrap  implements CommandLineRunner {
         intencion2 = intencionService.save(intencion2);
         intencion3 = intencionService.save(intencion3);
 
-        //se creo un EstadoDTO para probar Transaccion, no se si hay que hacer un DTO por estado,
-        //Lo hice asi para crear datos fakes en Transaccion DTO
-        //EstadoTransaccion estadoTransferido =  TRANSFERIDO;
+
 
         TransaccionDTO transaccion1 = new TransaccionDTO (intencion1 , usuario1, TRANSFERIDO ,
                                                          500, 25, 170,
