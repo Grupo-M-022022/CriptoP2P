@@ -35,7 +35,6 @@ public class TransaccionTest extends CriptoP2PApplicationTests {
         usuarioDTO.setId(15);
 
         transaccionDTO.setUsuario(usuarioDTO);
-
         transaccionDTO.setMonto(20);
     }
 
