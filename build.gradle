@@ -12,7 +12,7 @@ sonarqube {
 		property "sonar.projectKey", "Grupo-M-022022_CriptoP2P"
 		property "sonar.organization", "grupo-m-022022"
 		property "sonar.host.url", "https://sonarcloud.io"
-		property "sonar.coverage.jacoco.xmlReportPaths=${project.projectDir}/build/reports/jacoco/test/jacoco/test/jacocoTestReport.xml"
+		property "sonar.coverage.jacoco.xmlReportPaths=/build/reports/jacoco/test/jacoco/test/jacocoTestReport.xml"
 	}
 }
 jacocoTestReport {
