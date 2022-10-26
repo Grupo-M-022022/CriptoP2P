@@ -21,7 +21,7 @@ public class UsuarioController {
 	@Autowired
 	private IUsuarioService usuarioService;
 
-	@Operation(summary = "Registra a un nuevo usuario",
+	@Operation(summary     = "Registra a un nuevo usuario",
 			   description = "Permite ingresar un nuevo usuario al sistema")
 	@PostMapping("/registrar")
 
@@ -29,15 +29,15 @@ public class UsuarioController {
 		usuarioService.save(usuarioDTO);
 		return new ResponseEntity<>(usuarioDTO, HttpStatus.CREATED);
 	}
-	@Operation(summary = "listarUsuarios",
-			   description = "Lista a todos los usuarios que estan en el sistema")
+	@Operation(summary     = "Ver a los usuarios",
+			   description = "Mostrar los usuarios que estan en el sistema")
 	@GetMapping("/usuarios")
 
 	public ResponseEntity<List<UsuarioDTO>> usuarios() {
 		return new ResponseEntity<>(usuarioService.findAll(), HttpStatus.OK);
 
 	}
-	@Operation(summary = "buscarUsuarios",
+	@Operation(summary = "Buscar a un usuario",
 			   description = "Permite buscar a un determinado usuario por su ID")
 	@GetMapping("/{id}")
 
