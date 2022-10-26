@@ -27,12 +27,9 @@ public class TransaccionDTO {
 
     }
     private long id;
-    @NotNull
     private IntencionDTO intencion;
-    @NotNull
     private UsuarioDTO usuario;
     private EstadoTransaccion estadoTransaccion;
-    @NotNull
     private double monto;
     private int cantidadOperaciones;
     private int reputacion;

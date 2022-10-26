@@ -32,7 +32,7 @@ public class TransaccionController {
 
     @PostMapping("/recibir")
     public ResponseEntity<TransaccionDTO> recibir(@Valid @RequestBody TransaccionDTO transaccionDTO) {
-        transaccionService.recibir(transaccionDTO);
+        transaccionDTO = transaccionService.recibir(transaccionDTO);
         return new ResponseEntity<>(transaccionDTO, HttpStatus.CREATED);
     }
 

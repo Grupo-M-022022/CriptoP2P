@@ -65,13 +65,16 @@ public class TransaccionServiceImp implements ITransaccionService {
     }
 
     @Override
-    public void recibir(TransaccionDTO transaccionDTO) {
-        Transaccion transaccionEntidad = transaccionRepository.getReferenceById(transaccionDTO.getId());
+    @Transactional
+    public TransaccionDTO recibir(TransaccionDTO transaccionDTO) {
+        Optional<Transaccion> transaccionEntidadOption = transaccionRepository.findById(transaccionDTO.getId());
+        Transaccion transaccionEntidad = transaccionEntidadOption.get();
         transaccionEntidad.setEstadoTransaccionRecibido();
         transaccionEntidad.setDireccionEnvio();
         transaccionEntidad.SumarOperacionAVenta();
         transaccionEntidad.getIntencion().setActivo(false);
-        transaccionRepository.save(transaccionEntidad);
+        transaccionEntidad = transaccionRepository.save(transaccionEntidad);
+        return autoMapper.To(transaccionEntidad, TransaccionDTO.class);
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.util.List;
 public interface ITransaccionService {
     TransaccionDTO save(TransaccionDTO transaccion);
     TransaccionDTO transferir(TransaccionDTO transaccionDTO);
-    void recibir(TransaccionDTO transaccionDTO);
+    TransaccionDTO recibir(TransaccionDTO transaccionDTO);
     void cancelar(TransaccionDTO transaccionDTO);
     List<TransaccionDTO> findAll();
 }
