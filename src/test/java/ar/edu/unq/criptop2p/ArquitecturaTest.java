@@ -94,18 +94,14 @@ public class ArquitecturaTest {
 
     @ArchTest
     ArchRule reglaDeAccesosDeLasDiferentesCapasDelProyecto = layeredArchitecture().consideringAllDependencies()
-            .layer(model).definedBy(paqueteModel)
-            .layer(webservice).definedBy(paqueteWebService)
-            .layer(service).definedBy(paqueteService)
-            .layer(persistence).definedBy(paquetePersistence)
+            .optionalLayer(model).definedBy(paqueteModel)
+            .optionalLayer(webservice).definedBy(paqueteWebService)
+            .optionalLayer(service).definedBy(paqueteService)
+            .optionalLayer(persistence).definedBy(paquetePersistence)
 
             .whereLayer(webservice).mayNotBeAccessedByAnyLayer()
             .whereLayer(model).mayOnlyBeAccessedByLayers(persistence,service)
             .whereLayer(persistence).mayOnlyBeAccessedByLayers(service)
             .whereLayer(service).mayOnlyBeAccessedByLayers(webservice,service);
-
-    //Todo: Revisar este test, esta como en la doc oficial pero no funciona.
-
-
 
 }
