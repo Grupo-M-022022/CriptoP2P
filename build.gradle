@@ -61,6 +61,10 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'com.tngtech.archunit:archunit-junit5:1.0.0'
 	testImplementation 'com.tngtech.archunit:archunit:1.0.0'
+    annotationProcessor 'org.ehcache:ehcache:3.10.8'
+
+
+
 }
 
 tasks.named('test') {

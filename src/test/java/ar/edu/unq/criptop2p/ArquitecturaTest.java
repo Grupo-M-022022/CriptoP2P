@@ -8,6 +8,7 @@ import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
+import org.junit.jupiter.api.Test;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
@@ -103,5 +104,7 @@ public class ArquitecturaTest {
             .whereLayer(model).mayOnlyBeAccessedByLayers(persistence,service)
             .whereLayer(persistence).mayOnlyBeAccessedByLayers(service)
             .whereLayer(service).mayOnlyBeAccessedByLayers(webservice,service);
+
+
 
 }

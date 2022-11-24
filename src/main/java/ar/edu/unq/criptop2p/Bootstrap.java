@@ -23,6 +23,7 @@ public class Bootstrap  implements CommandLineRunner {
     private ICotizacionService cotizacionService;
 
     @Override
+
     public void run(String... args) throws Exception {
 
         criptoMonedaService.save(new CriptoMonedaDTO("ALICEUSDT"));

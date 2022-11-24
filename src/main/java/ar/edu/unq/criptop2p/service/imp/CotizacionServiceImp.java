@@ -11,6 +11,7 @@ import ar.edu.unq.criptop2p.persistence.interfaces.ICriptoModedaRepository;
 import ar.edu.unq.criptop2p.service.interfaces.ICotizacionService;
 import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,6 +30,8 @@ public class CotizacionServiceImp implements ICotizacionService {
     ICotizacionBinanceRepository cotizacionBinanceRepository;
     @Autowired
     private ICriptoModedaRepository criptoModedaRepository;
+
+    @Cacheable("cotizacion") //Agregada las cotizaciones para cache
 
     public List<CotizacionDTO> getCotizaciones() {
         List<CriptoMoneda> criptoMonedas = criptoModedaRepository.findAll();
