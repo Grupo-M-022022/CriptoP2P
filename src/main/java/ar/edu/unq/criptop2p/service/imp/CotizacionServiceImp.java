@@ -31,7 +31,7 @@ public class CotizacionServiceImp implements ICotizacionService {
     @Autowired
     private ICriptoModedaRepository criptoModedaRepository;
 
-    @Cacheable("cotizacion") //Agregada las cotizaciones para cache
+    @Cacheable(value = "cotizacionesCache") //Agregada las cotizaciones para cache
 
     public List<CotizacionDTO> getCotizaciones() {
         List<CriptoMoneda> criptoMonedas = criptoModedaRepository.findAll();

@@ -50,6 +50,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springdoc:springdoc-openapi-ui:1.6.11'
+
+	implementation "javax.cache:cache-api:1.1.1"
+	implementation "org.ehcache:ehcache:3.10.8"
     annotationProcessor 'io.springfox:springfox-swagger2:3.0.0'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
     testImplementation 'junit:junit:4.13.1'
@@ -61,7 +64,7 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'com.tngtech.archunit:archunit-junit5:1.0.0'
 	testImplementation 'com.tngtech.archunit:archunit:1.0.0'
-    annotationProcessor 'org.ehcache:ehcache:3.10.8'
+    //annotationProcessor 'org.ehcache:ehcache:3.10.8'
 
 
 
