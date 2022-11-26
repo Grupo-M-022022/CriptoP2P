@@ -3,6 +3,8 @@ package ar.edu.unq.criptop2p.model.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 
 @Entity
@@ -36,6 +38,11 @@ public class Usuario {
 	public void SumarOperacion() {
 		setCantidadOperaciones(getCantidadOperaciones()+1);
 	}
+
+    public void EncriptarPassword(BCryptPasswordEncoder bCryptPasswordEncoder) {
+		String passworEncoded = bCryptPasswordEncoder.encode(this.getPassword());
+		this.setPassword(passworEncoded);
+    }
 }
 
 
