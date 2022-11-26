@@ -4,9 +4,10 @@ import java.util.List;
 import ar.edu.unq.criptop2p.model.dto.UsuarioDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
+
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/usuario")
 @Tag(name = "UsuarioController", description = "Operaciones sobre los usuarios del sistema")
-
+@EnableAutoConfiguration
 public class UsuarioController {
 	@Autowired
 	private IUsuarioService usuarioService;
@@ -37,7 +38,7 @@ public class UsuarioController {
 		return new ResponseEntity<>(usuarioService.findAll(), HttpStatus.OK);
 
 	}
-	@Operation(summary = "Buscar a un usuario",
+	@Operation(summary 	   = "Buscar a un usuario",
 			   description = "Permite buscar a un determinado usuario por su ID")
 	@GetMapping("/{id}")
 
