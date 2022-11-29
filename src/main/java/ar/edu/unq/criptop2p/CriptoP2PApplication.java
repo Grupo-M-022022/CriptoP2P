@@ -19,7 +19,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 		title = "CriptoP2P API",
 		version = "2.0"
 ))
-
+@EnableCaching
 public class CriptoP2PApplication {
 	@Bean
 	public ModelMapper modelMapper(){

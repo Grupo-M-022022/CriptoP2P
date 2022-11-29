@@ -4,6 +4,7 @@ import ar.edu.unq.criptop2p.model.dto.CotizacionDTO;
 import ar.edu.unq.criptop2p.model.dto.IntencionDTO;
 import ar.edu.unq.criptop2p.service.interfaces.ICotizacionService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,8 +27,9 @@ public class CotizacionController {
     }
     @Operation(summary = "Ver las ultimas 24 hs de cotizaciones",
             description = "Listar las cotizaciones de las ultimas 24 hs")
-    @GetMapping("/cotizacionesUltimas24Hs")
-    public ResponseEntity<List<CotizacionDTO>> cotizaciones24Hs(){
-        return  new ResponseEntity<>(cotizacionService.cotizarCriptosPorUltimas24Hs(),HttpStatus.OK);
+    @GetMapping("/{cripto}")
+    public ResponseEntity<List<CotizacionDTO>> cotizaciones24Hs(@Parameter(description =
+            "nombre de la cripto con sus ultimas 24 hs de cotizacion") @PathVariable String cripto){
+        return  new ResponseEntity<>(cotizacionService.cotizarCriptosPorUltimas24Hs(cripto),HttpStatus.OK);
     }
 }
