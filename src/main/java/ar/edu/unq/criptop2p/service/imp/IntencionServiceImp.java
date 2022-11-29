@@ -1,7 +1,6 @@
 package ar.edu.unq.criptop2p.service.imp;
 
 import ar.edu.unq.criptop2p.model.dto.IntencionDTO;
-
 import ar.edu.unq.criptop2p.model.entity.Intencion;
 import ar.edu.unq.criptop2p.persistence.interfaces.IIntencionRepository;
 import ar.edu.unq.criptop2p.persistence.interfaces.IUsuarioRepository;
@@ -10,7 +9,6 @@ import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
 

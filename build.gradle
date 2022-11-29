@@ -55,7 +55,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springdoc:springdoc-openapi-ui:1.6.11'
-
 	implementation "javax.cache:cache-api:1.1.1"
 	implementation "org.ehcache:ehcache:3.10.8"
     annotationProcessor 'io.springfox:springfox-swagger2:3.0.0'
@@ -70,9 +69,9 @@ dependencies {
 	testImplementation 'com.tngtech.archunit:archunit-junit5:1.0.0'
 	testImplementation 'com.tngtech.archunit:archunit:1.0.0'
     //annotationProcessor 'org.ehcache:ehcache:3.10.8'
-
-
-
+	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
+	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
 }
 
 tasks.named('test') {

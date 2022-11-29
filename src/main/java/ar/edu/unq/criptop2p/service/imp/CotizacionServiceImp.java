@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,7 +31,6 @@ public class CotizacionServiceImp implements ICotizacionService {
     private ICriptoModedaRepository criptoModedaRepository;
 
     @Cacheable(value = "cotizacionesCache") //Agregada las cotizaciones para cache
-
     public List<CotizacionDTO> getCotizaciones() {
         List<CriptoMoneda> criptoMonedas = criptoModedaRepository.findAll();
         List<CotizacionDTO> cotizacionesDTO = new ArrayList<>();
