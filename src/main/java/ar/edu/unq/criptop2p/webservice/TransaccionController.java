@@ -32,7 +32,7 @@ public class TransaccionController {
                description = "Permite realizar una transaccion  entre usuarios ")
     @PostMapping("/transferir")
     public ResponseEntity<TransaccionDTO> transferir(@Valid @RequestBody TransaccionDTO transaccionDTO) {
-        transaccionService.transferir(transaccionDTO);
+        transaccionDTO = transaccionService.transferir(transaccionDTO);
         return new ResponseEntity<>(transaccionDTO, HttpStatus.CREATED);
     }
     @Operation(summary = "Recibir una transferencia",

@@ -38,6 +38,7 @@ public class CotizacionServiceImp implements ICotizacionService {
             CotizacionDTO cotizacion = new CotizacionDTO();
             cotizacion.setSymbol(cripto.getNombre());
             cotizacion.setPrice(cripto.getUltimaCotizacion());
+            cotizacion.setFechaYHoraDeCotizacion(cripto.getCotizaciones().get(0).getFechaYHoraDeCotizacion());
             cotizacionesDTO.add(cotizacion);
         }
         return cotizacionesDTO;

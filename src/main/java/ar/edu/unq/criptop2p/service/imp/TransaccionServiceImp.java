@@ -44,11 +44,10 @@ public class TransaccionServiceImp implements ITransaccionService {
     @Override
     public TransaccionDTO transferir(TransaccionDTO transaccionDTO) {
         Transaccion transaccionEntidad = autoMapper.To(transaccionDTO, Transaccion.class);
-        Optional<Usuario> usuario = usuarioRepository.findAll().stream().findFirst();
+        Optional<Usuario> usuario = usuarioRepository.findById(transaccionEntidad.getIdUsuario());
         transaccionEntidad.setUsuario(usuario.orElse(null));
-        Optional<Intencion> intencion = intencionRepository.findById(transaccionDTO.getIntencion().getId());
+        Optional<Intencion> intencion = intencionRepository.findById(transaccionEntidad.getIntencion().getId());
         transaccionEntidad.setIntencion(intencion.orElse(null));
-        transaccionRepository.save(transaccionEntidad);
         try {
             transaccionEntidad.ValidarTransaccion();
             transaccionEntidad.setEstadoTransaccionTransferido();
@@ -57,8 +56,12 @@ public class TransaccionServiceImp implements ITransaccionService {
         } catch (CotizacionDesfazadaException ex) {
             transaccionEntidad.getIntencion().setActivo(false);
             transaccionEntidad.setEstadoTransaccion(EstadoTransaccion.CANCELADO);
-            transaccionRepository.save(transaccionEntidad);
         }
+//        usuario = usuarioRepository.findById(transaccionEntidad.getIdUsuario());
+//        transaccionEntidad.setUsuario(usuario.orElse(null));
+//        intencion = intencionRepository.findById(transaccionEntidad.getIntencion().getId());
+//        transaccionEntidad.setIntencion(intencion.orElse(null));
+        transaccionEntidad = transaccionRepository.save(transaccionEntidad);
         return autoMapper.To(transaccionEntidad, TransaccionDTO.class);
     }
 

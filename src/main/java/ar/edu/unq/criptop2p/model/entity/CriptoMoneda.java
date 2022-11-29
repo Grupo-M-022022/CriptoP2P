@@ -1,15 +1,12 @@
 package ar.edu.unq.criptop2p.model.entity;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "Criptomonedas")
-@Data
 @NoArgsConstructor
 public class CriptoMoneda {
 	@Id
@@ -25,12 +22,41 @@ public class CriptoMoneda {
 	public String toString(){
 		return "CriptoMoneda";
 	}
-	public double getUltimaCotizacion() {
-		if (cotizaciones != null && (long) cotizaciones.size() > 0)
-			return cotizaciones.get(0).getPrice();
-		return 0;
-	}
 	public void addCotizacion(Cotizacion cotizacion) {
 		this.getCotizaciones().add(cotizacion);
+	}
+
+	public double getUltimaCotizacion() {
+		if (getCotizaciones() != null && (long) getCotizaciones().size() > 0)
+			return getCotizaciones().get(0).getPrice();
+		return 0;
+	}
+
+	public void setUltimaCotizacion(double ultimaCotizacion) {
+		this.ultimaCotizacion = ultimaCotizacion;
+	}
+
+	public List<Cotizacion> getCotizaciones() {
+		return cotizaciones;
+	}
+
+	public void setCotizaciones(List<Cotizacion> cotizaciones) {
+		this.cotizaciones = cotizaciones;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

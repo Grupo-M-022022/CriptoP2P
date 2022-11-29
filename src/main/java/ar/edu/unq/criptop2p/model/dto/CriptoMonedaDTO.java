@@ -9,7 +9,7 @@ import java.util.List;
 public class CriptoMonedaDTO {
     private long id;
     private String nombre;
-    private List<CotizacionDTO> cotizaciones;
+    private double ultimaCotizacion;
 
     public CriptoMonedaDTO(String nombre) {
         setNombre(nombre);
