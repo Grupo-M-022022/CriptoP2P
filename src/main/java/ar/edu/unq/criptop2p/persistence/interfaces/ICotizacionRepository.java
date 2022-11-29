@@ -13,8 +13,11 @@ import java.util.List;
 public interface ICotizacionRepository extends JpaRepository<Cotizacion, Long> {
 
 
-    @Query("SELECT i FROM Cotizacion i WHERE i.fechaYHoraDeCotizacion >= :fechaInicio AND i.fechaYHoraDeCotizacion <= :fechaHasta AND i.criptoactivo.nombre = :nombre")
-    List<Cotizacion> cotizacionesEnLasUltimas24hs(@Param("fechaInicio" )LocalDateTime fechaInicio, @Param("fechaHasta" )LocalDateTime fechaHasta ,@Param("nombre") String nombre);
-
+    @Query("SELECT i FROM Cotizacion i WHERE i.fechaYHoraDeCotizacion >= :fechaInicio AND " +
+            "i.fechaYHoraDeCotizacion <= :fechaHasta AND " +
+            "i.criptoactivo.nombre = :nombre")
+    List<Cotizacion> cotizacionesEnLasUltimas24hs(@Param("fechaInicio" )LocalDateTime fechaInicio,
+                                                  @Param("fechaHasta" )LocalDateTime fechaHasta ,
+                                                  @Param("nombre") String nombre);
 
 }

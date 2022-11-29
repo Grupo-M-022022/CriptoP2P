@@ -33,8 +33,7 @@ public class CotizacionServiceImp implements ICotizacionService {
     @Autowired
     private ICriptoModedaRepository criptoModedaRepository;
 
-    @Cacheable(value = "cotizacionesCache") //Agregada las cotizaciones para cache
-
+    @Cacheable(value = "cotizacionesCache")
     public List<CotizacionDTO> getCotizaciones() {
         List<CriptoMoneda> criptoMonedas = criptoModedaRepository.findAll();
         List<CotizacionDTO> cotizacionesDTO = new ArrayList<>();
@@ -44,6 +43,7 @@ public class CotizacionServiceImp implements ICotizacionService {
             cotizacion.setPrice(cripto.getUltimaCotizacion());
             cotizacionesDTO.add(cotizacion);
         }
+
         return cotizacionesDTO;
     }
 
@@ -83,12 +83,12 @@ public class CotizacionServiceImp implements ICotizacionService {
     }
 
     @Override
-    public List<CotizacionDTO> cotizarCriptosPorUltimas24Hs() {
+    public List<CotizacionDTO> cotizarCriptosPorUltimas24Hs(String nombreCripto) {
 
        LocalDateTime fechaHasta = LocalDateTime.now();
        LocalDateTime fechaInicio = LocalDateTime.now().minusHours(24);
-       String cripto = "ALICEUSDT";
-        List<Cotizacion> cotizaciones24Hs = cotizacionRepository.cotizacionesEnLasUltimas24hs(fechaInicio,fechaHasta, cripto);
+       //String cripto = "ALICEUSDT";
+        List<Cotizacion> cotizaciones24Hs = cotizacionRepository.cotizacionesEnLasUltimas24hs(fechaInicio,fechaHasta, nombreCripto);
         return autoMapper.ToList(cotizaciones24Hs, CotizacionDTO.class);
     }
 }

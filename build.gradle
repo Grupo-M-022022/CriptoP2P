@@ -58,7 +58,8 @@ dependencies {
 
 	implementation "javax.cache:cache-api:1.1.1"
 	implementation "org.ehcache:ehcache:3.10.8"
-    annotationProcessor 'io.springfox:springfox-swagger2:3.0.0'
+	annotationProcessor 'org.ehcache:ehcache:3.10.8'
+	annotationProcessor 'io.springfox:springfox-swagger2:3.0.0'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.0'
     testImplementation 'junit:junit:4.13.1'
     compileOnly 'org.projectlombok:lombok:1.18.22'
@@ -69,7 +70,6 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'com.tngtech.archunit:archunit-junit5:1.0.0'
 	testImplementation 'com.tngtech.archunit:archunit:1.0.0'
-    //annotationProcessor 'org.ehcache:ehcache:3.10.8'
 
 
 

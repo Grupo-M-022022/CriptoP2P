@@ -15,7 +15,7 @@ public class LogginAdvice {
 
     Logger log = LoggerFactory.getLogger(LogginAdvice.class);
 
-    @Pointcut("execution(* ar.edu.unq.criptop2p.webservice.*.*(..))")
+    @Pointcut("execution(* ar.edu.unq.criptop2p.service.*.*.*(..))")
     public void myPointCut(){
 
     }
@@ -29,6 +29,9 @@ public class LogginAdvice {
         log.info("/////// AROUND START  ar.edu.unq.criptop2p.webservice //////");
         long start = System.currentTimeMillis();
         Object object = joinPoint.proceed();
+        if (object == null){
+            object = "";
+        }
         long executionTime = System.currentTimeMillis() - start;
         log.info("/////// " + joinPoint.getSignature() + " executed in " + executionTime + "ms " + object.toString());
         log.info("/////// AROUND FINISH  ar.edu.unq.criptop2p.webservice ///////");
