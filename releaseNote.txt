@@ -1,4 +1,20 @@
 ====== RELEASE NOTE  ==========
+TAG 2.0
+---------------------------------------------------------------------
+NEW FEATURES:
+* Se agrego las acciones para que el usuario pueda manifestar sus intenciones
+* Se genero un scheduler para obtener periodicamente las cotizaciones.
+* Se agregaron testing E2E en 3 controlers
+* Se implemento la funcionabilidad de transacciones para vincular las intenciones de los usuarios
+* Se profundizo la documentacion en OpenApi para documentar y describir los end-points
+* Se crearon datos fakes para la BD mediante CommandLineRunner
+* El modelo es persistido en BD en memoria mediante HSQLDB
+
+NOTES:
+* Falta funcionabilidar de Informar al usuario el volumen operado de cripto activos entre dos fechas
+
+KNOWN ISSUES:
+* Tenemos un problema para obtener algunos objetos con Hibernate
 
 ---------------------------------------------------------------------
 TAG 1.0

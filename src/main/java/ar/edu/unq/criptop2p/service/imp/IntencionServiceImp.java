@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@Transactional
 public class IntencionServiceImp implements IIntencionService {
     @Autowired
     private AutoMapperComponent autoMapper;
@@ -53,7 +55,7 @@ public class IntencionServiceImp implements IIntencionService {
 
     @Override
     public  IntencionDTO getById(long id){
-        Intencion intencion = intencionRepository.getReferenceById(id);
-        return autoMapper.To(intencion, IntencionDTO.class);
+        Optional<Intencion> intencion = intencionRepository.findById(id);
+        return autoMapper.To(intencion.orElse(null), IntencionDTO.class);
     }
 }
