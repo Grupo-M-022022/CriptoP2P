@@ -3,6 +3,7 @@ package ar.edu.unq.criptop2p.model.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -17,7 +18,7 @@ public class Cotizacion {
     @ManyToOne(fetch = FetchType.EAGER)
     private CriptoMoneda criptoactivo;
     private double price;
-    private Date fechaYHoraDeCotizacion;
+    private LocalDateTime fechaYHoraDeCotizacion;
     @Override
     public String toString(){
         return "Cotizacion";

@@ -15,6 +15,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -52,7 +54,7 @@ public class CotizacionServiceImp implements ICotizacionService {
             CriptoMoneda cripto = criptoModedaRepository.findByNombre(cotizacionBinance.getSymbol());
             Cotizacion cotizacion = new Cotizacion();
             cotizacion.setPrice(cotizacionBinance.getPrice());
-            cotizacion.setFechaYHoraDeCotizacion(new Date());
+            cotizacion.setFechaYHoraDeCotizacion(LocalDateTime.now());
             cotizacion.setCriptoactivo(cripto);
             cotizacionRepository.save(cotizacion);
             cripto.addCotizacion(cotizacion);
@@ -73,10 +75,20 @@ public class CotizacionServiceImp implements ICotizacionService {
             CriptoMoneda cripto = criptoModedaRepository.findByNombre(cotizacionBinance.getSymbol());
             Cotizacion cotizacion = new Cotizacion();
             cotizacion.setPrice(cotizacionBinance.getPrice());
-            cotizacion.setFechaYHoraDeCotizacion(new Date());
+            cotizacion.setFechaYHoraDeCotizacion(LocalDateTime.now());
             cotizacion.setCriptoactivo(cripto);
             cripto.addCotizacion(cotizacion);
             criptoModedaRepository.save(cripto);
         }
+    }
+
+    @Override
+    public List<CotizacionDTO> cotizarCriptosPorUltimas24Hs() {
+
+       LocalDateTime fechaHasta = LocalDateTime.now();
+       LocalDateTime fechaInicio = LocalDateTime.now().minusHours(24);
+       String cripto = "ALICEUSDT";
+        List<Cotizacion> cotizaciones24Hs = cotizacionRepository.cotizacionesEnLasUltimas24hs(fechaInicio,fechaHasta, cripto);
+        return autoMapper.ToList(cotizaciones24Hs, CotizacionDTO.class);
     }
 }

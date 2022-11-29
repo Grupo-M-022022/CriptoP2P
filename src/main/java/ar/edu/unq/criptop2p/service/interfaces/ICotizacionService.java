@@ -9,4 +9,5 @@ public interface ICotizacionService {
     List<CotizacionBinanceDTO> getCotizacionesBinance();
     void save(CotizacionDTO usuario);
     void actualizarCotizaciones();
+    List<CotizacionDTO> cotizarCriptosPorUltimas24Hs();
 }

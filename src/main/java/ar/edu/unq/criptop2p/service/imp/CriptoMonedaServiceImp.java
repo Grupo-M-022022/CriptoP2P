@@ -1,7 +1,10 @@
 package ar.edu.unq.criptop2p.service.imp;
 
+import ar.edu.unq.criptop2p.model.dto.CotizacionDTO;
 import ar.edu.unq.criptop2p.model.dto.CriptoMonedaDTO;
+import ar.edu.unq.criptop2p.model.dto.IntencionDTO;
 import ar.edu.unq.criptop2p.model.entity.CriptoMoneda;
+import ar.edu.unq.criptop2p.model.entity.Intencion;
 import ar.edu.unq.criptop2p.persistence.interfaces.ICriptoModedaRepository;
 import ar.edu.unq.criptop2p.service.interfaces.ICriptoMonedaService;
 import ar.edu.unq.criptop2p.utility.AutoMapperComponent;
