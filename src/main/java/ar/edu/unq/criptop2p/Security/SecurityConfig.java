@@ -28,10 +28,12 @@ public class SecurityConfig {
 
         return http
                 .csrf().disable()
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated()
+                .headers().frameOptions().disable()
                 .and()
+                .authorizeHttpRequests((authz) -> authz
+                        .antMatchers("/h2-ui/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .anyRequest().authenticated()
+                )
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
