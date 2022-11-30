@@ -23,6 +23,7 @@ public class Bootstrap  implements CommandLineRunner {
     private ICotizacionService cotizacionService;
 
     @Override
+
     public void run(String... args) throws Exception {
 
         criptoMonedaService.save(new CriptoMonedaDTO("ALICEUSDT"));
@@ -69,8 +70,6 @@ public class Bootstrap  implements CommandLineRunner {
         TransaccionDTO transaccion1 = new TransaccionDTO (intencion1 , usuario1, TRANSFERIDO ,
                                                          500, 25, 170,
                                                          "25 de Mayo 339");
-        //transaccion1  = transaccionService.save(transaccion1);
-
         cotizacionService.actualizarCotizaciones();
     }
 }
