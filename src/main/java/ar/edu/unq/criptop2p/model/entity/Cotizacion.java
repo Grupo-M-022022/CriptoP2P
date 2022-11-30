@@ -23,4 +23,8 @@ public class Cotizacion {
     public String toString(){
         return "Cotizacion";
     }
+    private String symbol;
+    public String getSymbol(){
+        return criptoactivo.getNombre();
+    }
 }
