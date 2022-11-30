@@ -1,4 +1,14 @@
 ====== RELEASE NOTE  ==========
+TAG 3.0
+---------------------------------------------------------------------
+NEW FEATURES:
+* Se agregaron tests de arquitectura mediante ArchUnit
+* Se genero Auditoria de Web-Service
+* Se agregaron auditorias de Logueo <timestamp,user,operación/metodo, parámetros, tiempoDeEjecucion>
+* Se agrego seguridad a la API mediante JWT
+* Se agrego la funcion de mostrar las cotizaciones de las ultimas 24 hs para un cripto activo determinado
+* Se agrego alta perfomance mediante EhCache para listar las cotizaciones
+
 TAG 2.0
 ---------------------------------------------------------------------
 NEW FEATURES:
