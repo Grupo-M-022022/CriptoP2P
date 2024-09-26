@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 public class CacheEventLogger implements CacheEventListener<Object, Object> {
 
-    private static final Logger log = LoggerFactory.getLogger(CacheEvent.class);
+    private static final Logger log = LoggerFactory.getLogger(CacheEventLogger.class);
 
     @Override
     public void onEvent(

@@ -14,7 +14,8 @@
 
         <listeners>
             <listener>
-                <class>com.baeldung.cachetest.config.CacheEventLogger</class>
+                <class>ar.edu.unq.criptop2p.CacheEventLogger</class>
+
                 <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
                 <event-ordering-mode>UNORDERED</event-ordering-mode>
                 <events-to-fire-on>CREATED</events-to-fire-on>

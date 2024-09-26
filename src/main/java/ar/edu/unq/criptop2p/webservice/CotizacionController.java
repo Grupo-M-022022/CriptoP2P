@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/cotizacion")
 @Tag(name = "CotizacionController", description = "Operaciones sobre las cotizaciones del sistema")
 @SecurityRequirement(name = "Bearer Authentication")
-public class CotizacionController {
+public class    CotizacionController {
 @Autowired
     private ICotizacionService cotizacionService;
     @Operation(summary = "Ver las cotizaciones",
